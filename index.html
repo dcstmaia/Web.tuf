@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Inscrição - THE UCHIHA FAMILY</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
+            color: #e0e1dd;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="%234156b0" opacity="0.2"/></svg>');
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: rgba(13, 27, 42, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(65, 86, 176, 0.5);
+            overflow: hidden;
+            border: 2px solid #4156b0;
+            position: relative;
+        }
+        
+        .header-banner {
+            background: linear-gradient(to right, #0d1b2a, #1b263b, #0d1b2a);
+            padding: 25px;
+            text-align: center;
+            position: relative;
+            border-bottom: 3px solid #4156b0;
+        }
+        
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .logo {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #0d1b2a, #4156b0);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 20px;
+            border: 3px solid #ffd700;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+        
+        .logo:before {
+            content: "";
+            position: absolute;
+            width: 90%;
+            height: 90%;
+            border: 2px solid #e0e1dd;
+            border-radius: 50%;
+        }
+        
+        .logo-inner {
+            width: 70%;
+            height: 70%;
+            background: #4156b0;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ffd700;
+        }
+        
+        .team-name {
+            text-align: center;
+        }
+        
+        .team-name h1 {
+            font-size: 2.8rem;
+            color: #ffd700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+            margin-bottom: 5px;
+            letter-spacing: 2px;
+        }
+        
+        .team-name h2 {
+            font-size: 1.5rem;
+            color: #e0e1dd;
+            font-weight: normal;
+            letter-spacing: 3px;
+        }
+        
+        .team-name h3 {
+            font-size: 1.2rem;
+            color: #a9b2c3;
+            margin-top: 10px;
+            font-weight: normal;
+        }
+        
+        .game-logo {
+            margin-top: 15px;
+        }
+        
+        .language-selector {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+        
+        .lang-btn {
+            background: rgba(65, 86, 176, 0.3);
+            border: 1px solid #ffd700;
+            color: #e0e1dd;
+            padding: 5px 10px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.8rem;
+        }
+        
+        .lang-btn:hover {
+            background: rgba(255, 215, 0, 0.2);
+        }
+        
+        .lang-btn.active {
+            background: rgba(255, 215, 0, 0.3);
+            font-weight: bold;
+        }
+        
+        .form-container {
+            padding: 30px;
+        }
+        
+        .section-title {
+            color: #ffd700;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #4156b0;
+            text-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100px;
+            height: 2px;
+            background: #ffd700;
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #ffd700;
+            font-size: 1.1rem;
+        }
+        
+        .input-icon {
+            position: relative;
+        }
+        
+        .input-icon i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #ffd700;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 15px 15px 15px 45px;
+            border: 1px solid #4156b0;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: rgba(27, 38, 59, 0.7);
+            color: #e0e1dd;
+            transition: all 0.3s;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            border-color: #ffd700;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+            outline: none;
+        }
+        
+        textarea {
+            min-height: 120px;
+            padding: 15px;
+        }
+        
+        .checkbox-group, .radio-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .checkbox-option, .radio-option {
+            display: flex;
+            align-items: center;
+            background: rgba(65, 86, 176, 0.2);
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #4156b0;
+        }
+        
+        .checkbox-option input, .radio-option input {
+            width: auto;
+            margin-right: 10px;
+        }
+        
+        .role-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .role-card {
+            background: rgba(41, 54, 85, 0.5);
+            border: 1px solid #4156b0;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .role-card:hover {
+            transform: translateY(-5px);
+            border-color: #ffd700;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.2);
+        }
+        
+        .role-card.selected {
+            background: rgba(65, 86, 176, 0.3);
+            border-color: #ffd700;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+        }
+        
+        .role-card i {
+            font-size: 2rem;
+            color: #ffd700;
+            margin-bottom: 10px;
+        }
+        
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .submit-btn {
+            padding: 15px 50px;
+            background: linear-gradient(to right, #1b263b, #4156b0, #1b263b);
+            color: #ffd700;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 5px 15px rgba(65, 86, 176, 0.4);
+            border: 1px solid #ffd700;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(65, 86, 176, 0.6);
+            background: linear-gradient(to right, #4156b0, #5a70c9, #4156b0);
+        }
+        
+        .submit-btn:active {
+            transform: translateY(1px);
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 25px;
+            background: rgba(13, 27, 42, 0.8);
+            border-top: 2px solid #4156b0;
+            flex-wrap: wrap;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .contact-item i {
+            color: #ffd700;
+            font-size: 1.5rem;
+        }
+        
+        .captain-info {
+            text-align: center;
+            padding: 20px;
+            background: rgba(41, 54, 85, 0.5);
+            font-size: 1.1rem;
+            border-top: 1px solid #4156b0;
+        }
+        
+        .captain-info strong {
+            color: #ffd700;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #0d1b2a;
+            color: #a9b2c3;
+            font-size: 0.9rem;
+            border-top: 1px solid #4156b0;
+        }
+        
+        .team-logo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: radial-gradient(circle, #4156b0 30%, #1b263b 70%, #0d1b2a 90%);
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(65, 86, 176, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            color: #ffd700;
+            border: 2px solid #ffd700;
+        }
+        
+        .message {
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            text-align: center;
+            display: none;
+        }
+        
+        .success {
+            background-color: rgba(0, 100, 0, 0.3);
+            border: 1px solid #0a0;
+        }
+        
+        .error {
+            background-color: rgba(100, 0, 0, 0.3);
+            border: 1px solid #a00;
+        }
+        
+        .info {
+            background-color: rgba(65, 86, 176, 0.3);
+            border: 1px solid #4156b0;
+        }
+        
+        .instructions {
+            background: rgba(41, 54, 85, 0.5);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 1px solid #4156b0;
+        }
+        
+        .instructions h3 {
+            color: #ffd700;
+            margin-bottom: 10px;
+        }
+        
+        .instructions ol {
+            padding-left: 20px;
+        }
+        
+        .instructions li {
+            margin-bottom: 10px;
+            color: #e0e1dd;
+        }
+        
+        @media (max-width: 768px) {
+            .logo-container {
+                flex-direction: column;
+            }
+            
+            .logo {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            
+            .team-name h1 {
+                font-size: 2rem;
+            }
+            
+            .team-name h2 {
+                font-size: 1.2rem;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+            
+            .language-selector {
+                top: 10px;
+                right: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="team-logo">TUF</div>
+        
+        <div class="language-selector">
+            <button class="lang-btn active" data-lang="pt">PT</button>
+            <button class="lang-btn" data-lang="id">ID</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        
+        <div class="header-banner">
+            <div class="logo-container">
+                <div class="logo">
+                    <div class="logo-inner">TUF</div>
+                </div>
+                <div class="team-name">
+                    <h1>THE UCHIHA FAMILY</h1>
+                    <h2>TIMOR LESTE ESPORT</h2>
+                    <h3>MOBILE LEGENDS TEAM</h3>
+                </div>
+            </div>
+            <div class="game-logo">
+                <i class="fas fa-gamepad fa-3x" style="color: #ffd700;"></i>
+            </div>
+        </div>
+        
+        <div class="form-container">
+            <h2 class="section-title" data-i18n="form_title">FORMULÁRIO DE INSCRIÇÃO</h2>
+            
+            <div class="instructions">
+                <h3 data-i18n="how_it_works">Como funciona o envio do formulário?</h3>
+                <ol>
+                    <li data-i18n="step1">Preencha todos os campos obrigatórios (*)</li>
+                    <li data-i18n="step2">Clique no botão "ENVIAR INSCRIÇÃO"</li>
+                    <li data-i18n="step3">Os dados serão enviados diretamente para o capitão Genjiro</li>
+                    <li data-i18n="step4">Você receberá uma confirmação por email</li>
+                    <li data-i18n="step5">O capitão entrará em contigo via WhatsApp para próximos passos</li>
+                </ol>
+                <p><strong data-i18n="note">Nota:</strong> <span data-i18n="form_note">Este formulário usa o serviço Formspree para enviar dados por email.</span></p>
+            </div>
+            
+            <div id="message" class="message"></div>
+            
+            <form id="tuf-application" action="https://formspree.io/f/xbjvqgvz" method="POST">
+                <input type="hidden" name="_subject" value="Nova Inscrição TUF - THE UCHIHA FAMILY">
+                <input type="hidden" name="_replyto" id="reply-email">
+                <input type="hidden" name="_cc" value="dcstmaia@gmail.com">
+                
+                <div class="form-grid">
+                    <div>
+                        <div class="form-group">
+                            <label for="nome" data-i18n="full_name">NOME COMPLETO *</label>
+                            <div class="input-icon">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="nome" name="nome" required placeholder="Seu nome completo" data-i18n-placeholder="name_placeholder">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="idade" data-i18n="age">IDADE *</label>
+                            <div class="input-icon">
+                                <i class="fas fa-birthday-cake"></i>
+                                <input type="number" id="idade" name="idade" min="15" max="40" required placeholder="Ex: 18" data-i18n-placeholder="age_placeholder">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="cidade" data-i18n="city">CIDADE *</label>
+                            <div class="input-icon">
+                                <i class="fas fa-city"></i>
+                                <input type="text" id="cidade" name="cidade" required placeholder="Sua cidade" data-i18n-placeholder="city_placeholder">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" data-i18n="email">EMAIL *</label>
+                            <div class="input-icon">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="email" name="email" required placeholder="seu@email.com" data-i18n-placeholder="email_placeholder">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="form-group">
+                            <label for="whatsapp" data-i18n="whatsapp">WHATSAPP *</label>
+                            <div class="input-icon">
+                                <i class="fab fa-whatsapp"></i>
+                                <input type="tel" id="whatsapp" name="whatsapp" required placeholder="Ex: +670 76 123456" data-i18n-placeholder="whatsapp_placeholder">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="ml-id" data-i18n="ml_id">ID MOBILE LEGENDS *</label>
+                            <div class="input-icon">
+                                <i class="fas fa-id-card"></i>
+                                <input type="text" id="ml-id" name="ml-id" required placeholder="Ex: 123456789(1234)" data-i18n-placeholder="ml_id_placeholder">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="rank" data-i18n="current_rank">RANK ATUAL *</label>
+                            <div class="input-icon">
+                                <i class="fas fa-trophy"></i>
+                                <select id="rank" name="rank" required>
+                                    <option value="" data-i18n="select_rank">Selecione seu rank</option>
+                                    <option value="warrior">Warrior</option>
+                                    <option value="elite">Elite</option>
+                                    <option value="master">Master</option>
+                                    <option value="grandmaster">Grandmaster</option>
+                                    <option value="epic">Epic</option>
+                                    <option value="legend">Legend</option>
+                                    <option value="mythic">Mythic</option>
+                                    <option value="mythic-honor">Mythic Honor</option>
+                                    <option value="mythic-immortal">Mythic Immortal</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="exp" data-i18n="competition_exp">EXPERIÊNCIA EM COMPETIÇÕES</label>
+                            <div class="input-icon">
+                                <i class="fas fa-history"></i>
+                                <input type="text" id="exp" name="exp" placeholder="Ex: Torneio local, MPL, etc." data-i18n-placeholder="exp_placeholder">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label data-i18n="main_role">FUNÇÃO PRINCIPAL *</label>
+                    <div class="role-grid">
+                        <div class="role-card" data-role="exp">
+                            <i class="fas fa-shield-alt"></i>
+                            <h3 data-i18n="role_exp">Exp Laner</h3>
+                            <p data-i18n="role_exp_desc">Sustento e pressão</p>
+                        </div>
+                        <div class="role-card" data-role="gold">
+                            <i class="fas fa-coins"></i>
+                            <h3 data-i18n="role_gold">Gold Laner</h3>
+                            <p data-i18n="role_gold_desc">Dano e carry</p>
+                        </div>
+                        <div class="role-card" data-role="mid">
+                            <i class="fas fa-bolt"></i>
+                            <h3 data-i18n="role_mid">Mid Laner</h3>
+                            <p data-i18n="role_mid_desc">Controle e rotação</p>
+                        </div>
+                        <div class="role-card" data-role="jungle">
+                            <i class="fas fa-paw"></i>
+                            <h3 data-i18n="role_jungle">Jungler</h3>
+                            <p data-i18n="role_jungle_desc">Ganks e objetivos</p>
+                        </div>
+                        <div class="role-card" data-role="roamer">
+                            <i class="fas fa-compass"></i>
+                            <h3 data-i18n="role_roamer">Roamer</h3>
+                            <p data-i18n="role_roamer_desc">Visão e suporte</p>
+                        </div>
+                    </div>
+                    <input type="hidden" id="funcao" name="funcao" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="heroes" data-i18n="strongest_heroes">HERÓIS MAIS FORTES (5 principais) *</label>
+                    <textarea id="heroes" name="heroes" required placeholder="Liste seus 5 heróis mais fortes, separados por vírgula (Ex: Chou, Fanny, Gusion, Pharsa, Atlas)" data-i18n-placeholder="heroes_placeholder"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="motivacao" data-i18n="motivation">POR QUE QUER ENTRAR PARA TUF? *</label>
+                    <textarea id="motivacao" name="motivacao" required placeholder="Explique sua motivação para entrar no time..." data-i18n-placeholder="motivation_placeholder"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="disponibilidade" data-i18n="availability">DISPONIBILIDADE DE HORÁRIOS *</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="manha" name="disponibilidade" value="manha">
+                            <label for="manha" data-i18n="morning">Manhã (8h-12h)</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="tarde" name="disponibilidade" value="tarde">
+                            <label for="tarde" data-i18n="afternoon">Tarde (14h-18h)</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="noite" name="disponibilidade" value="noite">
+                            <label for="noite" data-i18n="evening">Noite (19h-23h)</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="fds" name="disponibilidade" value="fds">
+                            <label for="fds" data-i18n="weekends">Finais de Semana</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="equipamento" data-i18n="equipment">EQUIPAMENTO QUE USA *</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="celular" name="equipamento" value="celular" required>
+                            <label for="celular" data-i18n="mobile">Celular</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="tablet" name="equipamento" value="tablet">
+                            <label for="tablet" data-i18n="tablet">Tablet</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="emulador" name="equipamento" value="emulador">
+                            <label for="emulador" data-i18n="emulator">Emulador (PC)</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="btn-container">
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i> <span data-i18n="submit_btn">ENVIAR INSCRIÇÃO</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+        
+        <div class="captain-info">
+            <p data-i18n="contact_info">Para mais informações, entre em contato com nosso capitão:</p>
+            <p><strong data-i18n="captain">Capitão:</strong> Genjiro</p>
+            <p><strong>Email:</strong> dcstmaia@gmail.com</p>
+            <p><strong>WhatsApp:</strong> +670 76730208</p>
+        </div>
+        
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>dcstmaia@gmail.com</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span>+670 76730208</span>
+            </div>
+            <div class="contact-item">
+                <i class="fab fa-whatsapp"></i>
+                <span>+670 76730208</span>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2024 THE UCHIHA FAMILY ESPORTS TEAM. <span data-i18n="rights">Todos os direitos reservados.</span></p>
+            <p data-i18n="footer_text">Orgulhosamente representando Timor Leste no cenário de Mobile Legends</p>
+        </footer>
+    </div>
+
+    <script>
+        // Sistem Multibahasa
+        const translations = {
+            pt: {
+                form_title: "FORMULÁRIO DE INSCRIÇÃO",
+                how_it_works: "Como funciona o envio do formulário?",
+                step1: "Preencha todos os campos obrigatórios (*)",
+                step2: "Clique no botão \"ENVIAR INSCRIÇÃO\"",
+                step3: "Os dados serão enviados diretamente para o capitão Genjiro",
+                step4: "Você receberá uma confirmação por email",
+                step5: "O capitão entrará em contigo via WhatsApp para próximos passos",
+                note: "Nota:",
+                form_note: "Este formulário usa o serviço Formspree para enviar dados por email.",
+                full_name: "NOME COMPLETO *",
+                name_placeholder: "Seu nome completo",
+                age: "IDADE *",
+                age_placeholder: "Ex: 18",
+                city: "CIDADE *",
+                city_placeholder: "Sua cidade",
+                email: "EMAIL *",
+                email_placeholder: "seu@email.com",
+                whatsapp: "WHATSAPP *",
+                whatsapp_placeholder: "Ex: +670 76 123456",
+                ml_id: "ID MOBILE LEGENDS *",
+                ml_id_placeholder: "Ex: 123456789(1234)",
+                current_rank: "RANK ATUAL *",
+                select_rank: "Selecione seu rank",
+                competition_exp: "EXPERIÊNCIA EM COMPETIÇÕES",
+                exp_placeholder: "Ex: Torneio local, MPL, etc.",
+                main_role: "FUNÇÃO PRINCIPAL *",
+                role_exp: "Exp Laner",
+                role_exp_desc: "Sustento e pressão",
+                role_gold: "Gold Laner",
+                role_gold_desc: "Dano e carry",
+                role_mid: "Mid Laner",
+                role_mid_desc: "Controle e rotação",
+                role_jungle: "Jungler",
+                role_jungle_desc: "Ganks e objetivos",
+                role_roamer: "Roamer",
+                role_roamer_desc: "Visão e suporte",
+                strongest_heroes: "HERÓIS MAIS FORTES (5 principais) *",
+                heroes_placeholder: "Liste seus 5 heróis mais fortes, separados por vírgula (Ex: Chou, Fanny, Gusion, Pharsa, Atlas)",
+                motivation: "POR QUE QUER ENTRAR PARA TUF? *",
+                motivation_placeholder: "Explique sua motivação para entrar no time...",
+                availability: "DISPONIBILIDADE DE HORÁRIOS *",
+                morning: "Manhã (8h-12h)",
+                afternoon: "Tarde (14h-18h)",
+                evening: "Noite (19h-23h)",
+                weekends: "Finais de Semana",
+                equipment: "EQUIPAMENTO QUE USA *",
+                mobile: "Celular",
+                tablet: "Tablet",
+                emulator: "Emulador (PC)",
+                submit_btn: "ENVIAR INSCRIÇÃO",
+                contact_info: "Para mais informações, entre em contato com nosso capitão:",
+                captain: "Capitão:",
+                rights: "Todos os direitos reservados.",
+                footer_text: "Orgulhosamente representando Timor Leste no cenário de Mobile Legends",
+                success_msg: "Inscrição enviada com sucesso! O capitão Genjiro entrará em contato em breve.",
+                error_msg: "Erro ao enviar a inscrição. Por favor, entre em contato diretamente com o capitão.",
+                role_error: "Por favor, selecione sua função principal!",
+                sending: "Enviando inscrição..."
+            },
+            id: {
+                form_title: "FORMULIR PENDAFTARAN",
+                how_it_works: "Bagaimana cara pengiriman formulir?",
+                step1: "Isi semua kolom wajib (*)",
+                step2: "Klik tombol \"KIRIM PENDAFTARAN\"",
+                step3: "Data akan dikirim langsung ke kapten Genjiro",
+                step4: "Anda akan menerima konfirmasi melalui email",
+                step5: "Kapten akan menghubungi Anda melalui WhatsApp untuk langkah selanjutnya",
+                note: "Catatan:",
+                form_note: "Formulir ini menggunakan layanan Formspree untuk mengirim data melalui email.",
+                full_name: "NAMA LENGKAP *",
+                name_placeholder: "Nama lengkap Anda",
+                age: "USIA *",
+                age_placeholder: "Contoh: 18",
+                city: "KOTA *",
+                city_placeholder: "Kota Anda",
+                email: "EMAIL *",
+                email_placeholder: "email@anda.com",
+                whatsapp: "WHATSAPP *",
+                whatsapp_placeholder: "Contoh: +670 76 123456",
+                ml_id: "ID MOBILE LEGENDS *",
+                ml_id_placeholder: "Contoh: 123456789(1234)",
+                current_rank: "RANK SAAT INI *",
+                select_rank: "Pilih rank Anda",
+                competition_exp: "PENGALAMAN KOMPETISI",
+                exp_placeholder: "Contoh: Turnamen lokal, MPL, dll.",
+                main_role: "PERAN UTAMA *",
+                role_exp: "Exp Laner",
+                role_exp_desc: "Ketahanan dan tekanan",
+                role_gold: "Gold Laner",
+                role_gold_desc: "Kerusakan dan carry",
+                role_mid: "Mid Laner",
+                role_mid_desc: "Kontrol dan rotasi",
+                role_jungle: "Jungler",
+                role_jungle_desc: "Ganks dan objektif",
+                role_roamer: "Roamer",
+                role_roamer_desc: "Penglihatan dan dukungan",
+                strongest_heroes: "HERO TERKUAT (5 utama) *",
+                heroes_placeholder: "Daftar 5 hero terkuat Anda, dipisahkan koma (Contoh: Chou, Fanny, Gusion, Pharsa, Atlas)",
+                motivation: "KENAPA INGIN BERGABUNG DENGAN TUF? *",
+                motivation_placeholder: "Jelaskan motivasi Anda untuk bergabung dengan tim...",
+                availability: "KETERSEDIAAN JADWAL *",
+                morning: "Pagi (08:00-12:00)",
+                afternoon: "Siang (14:00-18:00)",
+                evening: "Malam (19:00-23:00)",
+                weekends: "Akhir Pekan",
+                equipment: "PERALATAN YANG DIGUNAKAN *",
+                mobile: "Ponsel",
+                tablet: "Tablet",
+                emulator: "Emulator (PC)",
+                submit_btn: "KIRIM PENDAFTARAN",
+                contact_info: "Untuk informasi lebih lanjut, hubungi kapten kami:",
+                captain: "Kapten:",
+                rights: "Hak cipta dilindungi.",
+                footer_text: "Dengan bangga mewakili Timor Leste di dunia Mobile Legends",
+                success_msg: "Pendaftaran berhasil dikirim! Kapten Genjiro akan segera menghubungi Anda.",
+                error_msg: "Gagal mengirim pendaftaran. Silakan hubungi kapten secara langsung.",
+                role_error: "Silakan pilih peran utama Anda!",
+                sending: "Mengirim pendaftaran..."
+            },
+            en: {
+                form_title: "REGISTRATION FORM",
+                how_it_works: "How does the form submission work?",
+                step1: "Fill in all required fields (*)",
+                step2: "Click the \"SUBMIT APPLICATION\" button",
+                step3: "Data will be sent directly to Captain Genjiro",
+                step4: "You will receive a confirmation by email",
+                step5: "The captain will contact you via WhatsApp for next steps",
+                note: "Note:",
+                form_note: "This form uses Formspree service to send data via email.",
+                full_name: "FULL NAME *",
+                name_placeholder: "Your full name",
+                age: "AGE *",
+                age_placeholder: "e.g., 18",
+                city: "CITY *",
+                city_placeholder: "Your city",
+                email: "EMAIL *",
+                email_placeholder: "your@email.com",
+                whatsapp: "WHATSAPP *",
+                whatsapp_placeholder: "e.g., +670 76 123456",
+                ml_id: "MOBILE LEGENDS ID *",
+                ml_id_placeholder: "e.g., 123456789(1234)",
+                current_rank: "CURRENT RANK *",
+                select_rank: "Select your rank",
+                competition_exp: "COMPETITION EXPERIENCE",
+                exp_placeholder: "e.g., Local tournaments, MPL, etc.",
+                main_role: "MAIN ROLE *",
+                role_exp: "Exp Laner",
+                role_exp_desc: "Sustain and pressure",
+                role_gold: "Gold Laner",
+                role_gold_desc: "Damage and carry",
+                role_mid: "Mid Laner",
+                role_mid_desc: "Control and rotation",
+                role_jungle: "Jungler",
+                role_jungle_desc: "Ganks and objectives",
+                role_roamer: "Roamer",
+                role_roamer_desc: "Vision and support",
+                strongest_heroes: "STRONGEST HEROES (top 5) *",
+                heroes_placeholder: "List your top 5 strongest heroes, separated by commas (e.g., Chou, Fanny, Gusion, Pharsa, Atlas)",
+                motivation: "WHY DO YOU WANT TO JOIN TUF? *",
+                motivation_placeholder: "Explain your motivation for joining the team...",
+                availability: "AVAILABILITY SCHEDULE *",
+                morning: "Morning (8AM-12PM)",
+                afternoon: "Afternoon (2PM-6PM)",
+                evening: "Evening (7PM-11PM)",
+                weekends: "Weekends",
+                equipment: "EQUIPMENT YOU USE *",
+                mobile: "Mobile",
+                tablet: "Tablet",
+                emulator: "Emulator (PC)",
+                submit_btn: "SUBMIT APPLICATION",
+                contact_info: "For more information, contact our captain:",
+                captain: "Captain:",
+                rights: "All rights reserved.",
+                footer_text: "Proudly representing Timor Leste in the Mobile Legends scene",
+                success_msg: "Application submitted successfully! Captain Genjiro will contact you shortly.",
+                error_msg: "Error submitting application. Please contact the captain directly.",
+                role_error: "Please select your main role!",
+                sending: "Submitting application..."
+            }
+        };
+
+        // Default language
+        let currentLang = 'pt';
+        
+        // Language selector functionality
+        document.querySelectorAll('.lang-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                // Update UI
+                document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                // Change language
+                currentLang = button.getAttribute('data-lang');
+                changeLanguage(currentLang);
+            });
+        });
+        
+        // Function to change language
+        function changeLanguage(lang) {
+            // Update all translatable elements
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+            
+            // Update placeholders
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+                const key = element.getAttribute('data-i18n-placeholder');
+                if (translations[lang][key]) {
+                    element.placeholder = translations[lang][key];
+                }
+            });
+        }
+        
+        // Seleção de função principal
+        const roleCards = document.querySelectorAll('.role-card');
+        const roleInput = document.getElementById('funcao');
+        
+        roleCards.forEach(card => {
+            card.addEventListener('click', () => {
+                // Remove a seleção anterior
+                roleCards.forEach(c => c.classList.remove('selected'));
+                
+                // Adiciona seleção ao card clicado
+                card.classList.add('selected');
+                
+                // Atualiza o input hidden
+                roleInput.value = card.getAttribute('data-role');
+            });
+        });
+        
+        // Envio do formulário
+        document.getElementById('tuf-application').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Verifica se uma função foi selecionada
+            if (!roleInput.value) {
+                showMessage(translations[currentLang]['role_error'], 'error');
+                return;
+            }
+            
+            // Configura o email de resposta
+            const email = document.getElementById('email').value;
+            document.getElementById('reply-email').value = email;
+            
+            // Exibe mensagem de carregamento
+            showMessage(translations[currentLang]['sending'], 'info');
+            
+            // Cria um novo FormData
+            const formData = new FormData(this);
+            
+            // Envia os dados usando fetch
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    showMessage(translations[currentLang]['success_msg'], 'success');
+                    this.reset();
+                    roleCards.forEach(c => c.classList.remove('selected'));
+                    roleInput.value = '';
+                } else {
+                    throw new Error('Erro no envio do formulário');
+                }
+            })
+            .catch(error => {
+                showMessage(translations[currentLang]['error_msg'], 'error');
+                console.error('Erro:', error);
+            });
+        });
+        
+        // Função para exibir mensagens
+        function showMessage(text, type) {
+            const messageDiv = document.getElementById('message');
+            messageDiv.textContent = text;
+            messageDiv.className = 'message ' + type;
+            messageDiv.style.display = 'block';
+            
+            // Remove a mensagem após 5 segundos (exceto para mensagens de sucesso)
+            if (type !== 'success') {
+                setTimeout(() => {
+                    messageDiv.style.display = 'none';
+                }, 5000);
+            }
+        }
+        
+        // Efeito de digitação no título
+        const teamName = document.querySelector('.team-name h1');
+        const originalText = teamName.textContent;
+        teamName.textContent = '';
+        
+        let i = 0;
+        const typingEffect = setInterval(() => {
+            if (i < originalText.length) {
+                teamName.textContent += originalText.charAt(i);
+                i++;
+            } else {
+                clearInterval(typingEffect);
+            }
+        }, 100);
+    </script>
+</body>
+</html>

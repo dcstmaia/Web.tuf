@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário de Inscrição - THE UCHIHA FAMILY</title>
+    <title>Berpikir Tenang, Hidup Ringan - Baca Buku Digital</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <style>
         * {
             margin: 0;
@@ -13,1043 +12,1415 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
-            background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
-            color: #e0e1dd;
-            line-height: 1.6;
-            padding: 20px;
+            background: linear-gradient(135deg, #1a2a6c, #2c3e50);
             min-height: 100vh;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="%234156b0" opacity="0.2"/></svg>');
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #333;
         }
-        
+
         .container {
-            max-width: 900px;
-            margin: 20px auto;
-            background-color: rgba(13, 27, 42, 0.9);
-            border-radius: 15px;
-            box-shadow: 0 0 30px rgba(65, 86, 176, 0.5);
-            overflow: hidden;
-            border: 2px solid #4156b0;
-            position: relative;
-        }
-        
-        .header-banner {
-            background: linear-gradient(to right, #0d1b2a, #1b263b, #0d1b2a);
-            padding: 25px;
-            text-align: center;
-            position: relative;
-            border-bottom: 3px solid #4156b0;
-        }
-        
-        .logo-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-        
-        .logo {
-            position: relative;
-            width: 120px;
-            height: 120px;
-            background: linear-gradient(135deg, #0d1b2a, #4156b0);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-right: 20px;
-            border: 3px solid #ffd700;
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
-        }
-        
-        .logo:before {
-            content: "";
-            position: absolute;
-            width: 90%;
-            height: 90%;
-            border: 2px solid #e0e1dd;
-            border-radius: 50%;
-        }
-        
-        .logo-inner {
-            width: 70%;
-            height: 70%;
-            background: #4156b0;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #ffd700;
-        }
-        
-        .team-name {
-            text-align: center;
-        }
-        
-        .team-name h1 {
-            font-size: 2.8rem;
-            color: #ffd700;
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-            margin-bottom: 5px;
-            letter-spacing: 2px;
-        }
-        
-        .team-name h2 {
-            font-size: 1.5rem;
-            color: #e0e1dd;
-            font-weight: normal;
-            letter-spacing: 3px;
-        }
-        
-        .team-name h3 {
-            font-size: 1.2rem;
-            color: #a9b2c3;
-            margin-top: 10px;
-            font-weight: normal;
-        }
-        
-        .game-logo {
-            margin-top: 15px;
-        }
-        
-        .language-selector {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            display: flex;
-            gap: 10px;
-            z-index: 10;
-        }
-        
-        .lang-btn {
-            background: rgba(65, 86, 176, 0.3);
-            border: 1px solid #ffd700;
-            color: #e0e1dd;
-            padding: 5px 10px;
+            max-width: 1400px;
+            width: 98%;
+            height: 95vh;
+            background-color: rgba(255, 255, 255, 0.97);
             border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 0.8rem;
-        }
-        
-        .lang-btn:hover {
-            background: rgba(255, 215, 0, 0.2);
-        }
-        
-        .lang-btn.active {
-            background: rgba(255, 215, 0, 0.3);
-            font-weight: bold;
-        }
-        
-        .form-container {
-            padding: 30px;
-        }
-        
-        .section-title {
-            color: #ffd700;
-            font-size: 1.8rem;
-            margin-bottom: 25px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #4156b0;
-            text-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
-            position: relative;
-        }
-        
-        .section-title:after {
-            content: "";
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 100px;
-            height: 2px;
-            background: #ffd700;
-        }
-        
-        .form-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-bottom: 30px;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #ffd700;
-            font-size: 1.1rem;
-        }
-        
-        .input-icon {
-            position: relative;
-        }
-        
-        .input-icon i {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #ffd700;
-        }
-        
-        input, select, textarea {
-            width: 100%;
-            padding: 15px 15px 15px 45px;
-            border: 1px solid #4156b0;
-            border-radius: 8px;
-            font-size: 1rem;
-            background: rgba(27, 38, 59, 0.7);
-            color: #e0e1dd;
-            transition: all 0.3s;
-        }
-        
-        input:focus, select:focus, textarea:focus {
-            border-color: #ffd700;
-            box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
-            outline: none;
-        }
-        
-        textarea {
-            min-height: 120px;
-            padding: 15px;
-        }
-        
-        .checkbox-group, .radio-group {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin-top: 10px;
-        }
-        
-        .checkbox-option, .radio-option {
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
             display: flex;
-            align-items: center;
-            background: rgba(65, 86, 176, 0.2);
-            padding: 10px;
-            border-radius: 8px;
-            border: 1px solid #4156b0;
-        }
-        
-        .checkbox-option input, .radio-option input {
-            width: auto;
-            margin-right: 10px;
-        }
-        
-        .role-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 15px;
-            margin-top: 10px;
-        }
-        
-        .role-card {
-            background: rgba(41, 54, 85, 0.5);
-            border: 1px solid #4156b0;
-            border-radius: 8px;
-            padding: 15px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .role-card:hover {
-            transform: translateY(-5px);
-            border-color: #ffd700;
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.2);
-        }
-        
-        .role-card.selected {
-            background: rgba(65, 86, 176, 0.3);
-            border-color: #ffd700;
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
-        }
-        
-        .role-card i {
-            font-size: 2rem;
-            color: #ffd700;
-            margin-bottom: 10px;
-        }
-        
-        .btn-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 30px;
             flex-direction: column;
-            align-items: center;
-            gap: 20px;
         }
-        
-        .submit-btn {
-            padding: 15px 50px;
-            background: linear-gradient(to right, #1b263b, #4156b0, #1b263b);
-            color: #ffd700;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            box-shadow: 0 5px 15px rgba(65, 86, 176, 0.4);
-            border: 1px solid #ffd700;
-        }
-        
-        .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(65, 86, 176, 0.6);
-            background: linear-gradient(to right, #4156b0, #5a70c9, #4156b0);
-        }
-        
-        .submit-btn:active {
-            transform: translateY(1px);
-        }
-        
-        .contact-info {
+
+        header {
+            background: linear-gradient(to right, #2c3e50, #1a2a6c);
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            position: relative;
             display: flex;
-            justify-content: center;
-            gap: 40px;
-            padding: 25px;
-            background: rgba(13, 27, 42, 0.8);
-            border-top: 2px solid #4156b0;
+            justify-content: space-between;
+            align-items: center;
             flex-wrap: wrap;
         }
-        
-        .contact-item {
+
+        .header-left {
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-size: 1.1rem;
+            gap: 15px;
         }
-        
-        .contact-item i {
-            color: #ffd700;
-            font-size: 1.5rem;
-        }
-        
-        .captain-info {
-            text-align: center;
-            padding: 20px;
-            background: rgba(41, 54, 85, 0.5);
-            font-size: 1.1rem;
-            border-top: 1px solid #4156b0;
-        }
-        
-        .captain-info strong {
+
+        .logo {
+            font-size: 2.2rem;
             color: #ffd700;
         }
-        
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #0d1b2a;
-            color: #a9b2c3;
+
+        .header-text {
+            text-align: left;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header .subtitle {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            max-width: 700px;
+            font-style: italic;
+        }
+
+        .author {
             font-size: 0.9rem;
-            border-top: 1px solid #4156b0;
+            color: #ffd700;
         }
-        
-        .team-logo {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 50px;
-            height: 50px;
-            background: radial-gradient(circle, #4156b0 30%, #1b263b 70%, #0d1b2a 90%);
+
+        .header-controls {
+            display: flex;
+            gap: 10px;
+        }
+
+        .header-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            box-shadow: 0 0 20px rgba(65, 86, 176, 0.7);
+            cursor: pointer;
+            font-size: 1.1rem;
             display: flex;
-            justify-content: center;
             align-items: center;
-            font-weight: bold;
-            color: #ffd700;
-            border: 2px solid #ffd700;
+            justify-content: center;
+            transition: all 0.3s ease;
         }
-        
-        .message {
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-            text-align: center;
-            display: none;
+
+        .header-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
         }
-        
-        .success {
-            background-color: rgba(0, 100, 0, 0.3);
-            border: 1px solid #0a0;
-            color: #e0e1dd;
-        }
-        
-        .error {
-            background-color: rgba(100, 0, 0, 0.3);
-            border: 1px solid #a00;
-            color: #e0e1dd;
-        }
-        
-        .info {
-            background-color: rgba(65, 86, 176, 0.3);
-            border: 1px solid #4156b0;
-            color: #e0e1dd;
-        }
-        
-        .instructions {
-            background: rgba(41, 54, 85, 0.5);
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-            border: 1px solid #4156b0;
-        }
-        
-        .instructions h3 {
-            color: #ffd700;
-            margin-bottom: 10px;
-        }
-        
-        .instructions ol {
-            padding-left: 20px;
-        }
-        
-        .instructions li {
-            margin-bottom: 10px;
-            color: #e0e1dd;
-        }
-        
-        .recaptcha-container {
-            margin: 20px 0;
+
+        .main-content {
             display: flex;
+            flex: 1;
+            overflow: hidden;
+            height: calc(100% - 150px);
+        }
+
+        .sidebar {
+            width: 300px;
+            background-color: #f5f7fa;
+            padding: 15px;
+            border-right: 1px solid #e0e6ed;
+            overflow-y: auto;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar.hidden {
+            transform: translateX(-100%);
+            opacity: 0;
+            width: 0;
+            padding: 0;
+            border: none;
+        }
+
+        .toggle-sidebar {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #3498db;
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .toggle-sidebar:hover {
+            transform: scale(1.1);
+        }
+
+        .book-list {
+            margin-top: 10px;
+        }
+
+        .book-list h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+            font-size: 1.3rem;
+        }
+
+        .part-title {
+            background: #e3f2fd;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #1a2a6c;
+            font-size: 1.05rem;
+        }
+
+        .chapter-item {
+            background: white;
+            border-radius: 10px;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            border-left: 4px solid #3498db;
+        }
+
+        .chapter-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            border-left: 4px solid #ff6b6b;
+        }
+
+        .chapter-item.active {
+            background: #e3f2fd;
+            border-left: 4px solid #ff6b6b;
+            font-weight: bold;
+        }
+
+        .chapter-icon {
+            margin-right: 12px;
+            font-size: 1.1rem;
+            color: #2c3e50;
+        }
+
+        .chapter-info {
+            flex: 1;
+        }
+
+        .chapter-info h3 {
+            font-size: 1rem;
+            margin-bottom: 3px;
+            color: #2c3e50;
+        }
+
+        .chapter-info p {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+            margin-bottom: 3px;
+        }
+
+        .reader {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            overflow: hidden;
+            position: relative;
+            height: 100%;
+        }
+
+        .book-title {
+            text-align: center;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-size: 1.5rem;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e0e6ed;
+        }
+
+        .chapter-title {
+            text-align: center;
+            color: #1a2a6c;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .book-content-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .book-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 25px;
+            background-color: #f9f9f9;
+            border-radius: 15px;
+            border: 1px solid #e0e6ed;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+            height: calc(100% - 150px);
+        }
+
+        .book-content h4 {
+            color: #1a2a6c;
+            margin: 20px 0 10px;
+            font-size: 1.25rem;
+        }
+
+        .book-content p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .book-content blockquote {
+            background: #e3f2fd;
+            border-left: 4px solid #3498db;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            color: #2c3e50;
+        }
+
+        .progress-bar-container {
+            margin: 10px 0;
+        }
+
+        .progress-bar {
+            height: 6px;
+            background: #e0e6ed;
+            border-radius: 3px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress {
+            height: 100%;
+            background: #27ae60;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            font-size: 0.85rem;
+            text-align: right;
+            color: #7f8c8d;
+            margin-top: 3px;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-top: 1px solid #e0e6ed;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+            background: #2980b9;
+        }
+
+        .btn:disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .btn.btn-prev {
+            background: #2c3e50;
+        }
+
+        .btn.btn-prev:hover {
+            background: #1a252f;
+        }
+
+        .btn.btn-next {
+            background: #27ae60;
+        }
+
+        .btn.btn-next:hover {
+            background: #219653;
+        }
+
+        .page-info {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #2c3e50;
+            background: #ecf0f1;
+            padding: 8px 20px;
+            border-radius: 30px;
+        }
+
+        .settings {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        .setting-btn {
+            background: #ecf0f1;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2c3e50;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .setting-btn:hover {
+            background: #3498db;
+            color: white;
+            transform: rotate(15deg) scale(1.1);
+        }
+
+        .font-indicator {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #ff6b6b;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 0.7rem;
+            display: flex;
+            align-items: center;
             justify-content: center;
         }
-        
-        @media (max-width: 768px) {
-            .logo-container {
-                flex-direction: column;
+
+        .theme-dark .book-content {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+        }
+
+        .theme-dark .book-content h4 {
+            color: #ffd700;
+        }
+
+        .theme-dark .book-content blockquote {
+            background: #34495e;
+            color: #ecf0f1;
+            border-left: 4px solid #ffd700;
+        }
+
+        .theme-sepia .book-content {
+            background-color: #fbf0d9;
+            color: #5d4037;
+        }
+
+        .theme-sepia .book-content h4 {
+            color: #8d6e63;
+        }
+
+        .theme-sepia .book-content blockquote {
+            background: #e6d2aa;
+            color: #5d4037;
+            border-left: 4px solid #8d6e63;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 12px;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive design */
+        @media (max-width: 992px) {
+            .container {
+                height: 95vh;
             }
             
-            .logo {
-                margin-right: 0;
-                margin-bottom: 20px;
+            .sidebar {
+                width: 280px;
+                position: absolute;
+                height: 100%;
+                z-index: 5;
+                left: 0;
+                top: 0;
+                padding-top: 60px;
             }
             
-            .team-name h1 {
-                font-size: 2rem;
+            .toggle-sidebar {
+                display: flex;
             }
             
-            .team-name h2 {
+            .main-content {
+                position: relative;
+            }
+            
+            .book-title {
+                font-size: 1.4rem;
+            }
+            
+            .chapter-title {
                 font-size: 1.2rem;
             }
             
-            .form-grid {
-                grid-template-columns: 1fr;
+            .btn {
+                padding: 10px 15px;
+                font-size: 0.9rem;
             }
             
-            .contact-info {
+            .reader {
+                padding: 15px;
+            }
+            
+            .book-content {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
                 flex-direction: column;
-                align-items: center;
-                gap: 20px;
+                gap: 10px;
             }
             
-            .language-selector {
-                top: 10px;
-                right: 10px;
+            .header-left {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .header-text {
+                text-align: center;
+            }
+            
+            .header-controls {
+                margin-top: 10px;
+            }
+            
+            .book-content {
+                padding: 15px;
+                font-size: 1rem;
+            }
+            
+            .book-content h4 {
+                font-size: 1.15rem;
+            }
+            
+            .page-info {
+                font-size: 0.95rem;
+                padding: 6px 15px;
+            }
+            
+            .btn {
+                padding: 8px 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                width: 100%;
+                height: 100vh;
+                border-radius: 0;
+            }
+            
+            body {
+                padding: 0;
+            }
+            
+            .book-content {
+                padding: 12px;
+                font-size: 0.95rem;
+            }
+            
+            .book-content h4 {
+                font-size: 1.1rem;
+            }
+            
+            .page-info {
+                display: none;
+            }
+            
+            .controls {
+                justify-content: space-around;
+            }
+            
+            .btn span {
+                display: none;
+            }
+            
+            .btn i {
+                margin: 0;
+            }
+            
+            .btn {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                padding: 0;
+                justify-content: center;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="team-logo">TUF</div>
-        
-        <div class="language-selector">
-            <button class="lang-btn active" data-lang="pt">PT</button>
-            <button class="lang-btn" data-lang="id">ID</button>
-            <button class="lang-btn" data-lang="en">EN</button>
-        </div>
-        
-        <div class="header-banner">
-            <div class="logo-container">
+        <header>
+            <div class="header-left">
                 <div class="logo">
-                    <div class="logo-inner">TUF</div>
+                    <i class="fas fa-book-open"></i>
                 </div>
-                <div class="team-name">
-                    <h1>THE UCHIHA FAMILY</h1>
-                    <h2>TIMOR LESTE ESPORT</h2>
-                    <h3>MOBILE LEGENDS TEAM</h3>
+                <div class="header-text">
+                    <h1>Berpikir Tenang, Hidup Ringan</h1>
+                    <p class="subtitle">Menggabungkan Kebijaksanaan Stoikisme dan Psikologi Adler</p>
+                    <div class="author">Ditulis oleh Ambrosio Da Costa</div>
                 </div>
             </div>
-            <div class="game-logo">
-                <i class="fas fa-gamepad fa-3x" style="color: #ffd700;"></i>
+            <div class="header-controls">
+                <button class="header-btn" id="bookmark-btn">
+                    <i class="fas fa-bookmark"></i>
+                </button>
+                <button class="header-btn" id="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="header-btn" id="fullscreen-btn">
+                    <i class="fas fa-expand"></i>
+                </button>
             </div>
-        </div>
+        </header>
         
-        <div class="form-container">
-            <h2 class="section-title" data-i18n="form_title">FORMULÁRIO DE INSCRIÇÃO</h2>
-            
-            <div class="instructions">
-                <h3 data-i18n="how_it_works">Como funciona o envio do formulário?</h3>
-                <ol>
-                    <li data-i18n="step1">Preencha todos os campos obrigatórios (*)</li>
-                    <li data-i18n="step2">Clique no botão "ENVIAR INSCRIÇÃO"</li>
-                    <li data-i18n="step3">Os dados serão enviados diretamente para o capitão Genjiro</li>
-                    <li data-i18n="step4">Você receberá uma confirmação por email</li>
-                    <li data-i18n="step5">O capitão entrará em contigo via WhatsApp para próximos passos</li>
-                </ol>
-                <p><strong data-i18n="note">Nota:</strong> <span data-i18n="form_note">Este formulário usa o serviço Formspree para enviar dados por email.</span></p>
-            </div>
-            
-            <div id="message" class="message"></div>
-            
-            <form id="tuf-application">
-                <input type="hidden" name="_subject" value="Nova Inscrição TUF - THE UCHIHA FAMILY">
-                <input type="hidden" name="_replyto" id="reply-email">
-                
-                <div class="form-grid">
-                    <div>
-                        <div class="form-group">
-                            <label for="nome" data-i18n="full_name">NOME COMPLETO *</label>
-                            <div class="input-icon">
-                                <i class="fas fa-user"></i>
-                                <input type="text" id="nome" name="nome" required placeholder="Seu nome completo" data-i18n-placeholder="name_placeholder">
-                            </div>
+        <div class="main-content">
+            <div class="sidebar">
+                <div class="book-list">
+                    <h2>Daftar Isi</h2>
+                    
+                    <div class="part-title">Bagian I – Dasar Berpikir Tenang</div>
+                    
+                    <div class="chapter-item active" data-chapter="1">
+                        <div class="chapter-icon">
+                            <i class="fas fa-puzzle-piece"></i>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="idade" data-i18n="age">IDADE *</label>
-                            <div class="input-icon">
-                                <i class="fas fa-birthday-cake"></i>
-                                <input type="number" id="idade" name="idade" min="15" max="40" required placeholder="Ex: 18" data-i18n-placeholder="age_placeholder">
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="cidade" data-i18n="city">CIDADE *</label>
-                            <div class="input-icon">
-                                <i class="fas fa-city"></i>
-                                <input type="text" id="cidade" name="cidade" required placeholder="Sua cidade" data-i18n-placeholder="city_placeholder">
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email" data-i18n="email">EMAIL *</label>
-                            <div class="input-icon">
-                                <i class="fas fa-envelope"></i>
-                                <input type="email" id="email" name="email" required placeholder="seu@email.com" data-i18n-placeholder="email_placeholder">
-                            </div>
+                        <div class="chapter-info">
+                            <h3>Bab 1: Dunia Tidak Akan Pernah Bisa Kamu Kendalikan</h3>
                         </div>
                     </div>
                     
-                    <div>
-                        <div class="form-group">
-                            <label for="whatsapp" data-i18n="whatsapp">WHATSAPP *</label>
-                            <div class="input-icon">
-                                <i class="fab fa-whatsapp"></i>
-                                <input type="tel" id="whatsapp" name="whatsapp" required placeholder="Ex: +670 76 123456" data-i18n-placeholder="whatsapp_placeholder">
+                    <div class="chapter-item" data-chapter="2">
+                        <div class="chapter-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="chapter-info">
+                            <h3>Bab 2: Ketenangan Adalah Pilihan, Bukan Hadiah</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="part-title">Bagian II – Membebaskan Diri</div>
+                    
+                    <div class="chapter-item" data-chapter="3">
+                        <div class="chapter-icon">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <div class="chapter-info">
+                            <h3>Bab 3: Berani Bertanggung Jawab Penuh</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="chapter-item" data-chapter="4">
+                        <div class="chapter-icon">
+                            <i class="fas fa-users-slash"></i>
+                        </div>
+                        <div class="chapter-info">
+                            <h3>Bab 4: Hidup Tanpa Perlu Disukai Semua Orang</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="chapter-item" data-chapter="5">
+                        <div class="chapter-icon">
+                            <i class="fas fa-theater-masks"></i>
+                        </div>
+                        <div class="chapter-info">
+                            <h3>Bab 5: Melepaskan Topeng, Menemukan Diri</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="part-title">Bagian III – Membangun Diri yang Teguh</div>
+                    
+                    <div class="chapter-item" data-chapter="6">
+                        <div class="chapter-icon">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <div class="chapter-info">
+                            <h3>Bab 6: Nilai-Nilai yang Tidak Bisa Diambil Dunia</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="chapter-item" data-chapter="7">
+                        <div class="chapter-icon">
+                            <i class="fas fa-mountain"></i>
+                        </div>
+                        <div class="chapter-info">
+                            <h3>Bab 7: Menjadi Batu Karang di Tengah Badai</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="chapter-item" data-chapter="8">
+                        <div class="chapter-icon">
+                            <i class="fas fa-feather-alt"></i>
+                        </div>
+                        <div class="chapter-info">
+                            <h3>Bab 8: Menjadi Pribadi yang Tanggung Jawab dan Bebas</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="part-title">Bagian IV – Relasi Sehat dan Bahagia</div>
+                    
+                    <div class="chapter-item" data-chapter="9">
+                        <div class="chapter-icon">
+                            <i class="fas fa-people-arrows"></i>
+                        </div>
+                        <div class="chapter-info">
+                            <h3>Bab 9: Orang Lain Bukan Musuh, Tapi Teman Seperjalanan</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="chapter-item" data-chapter="10">
+                        <div class="chapter-icon">
+                            <i class="fas fa-comment-slash"></i>
+                        </div>
+                        <div class="chapter-info">
+                            <h3>Bab 10: Menghadapi Kritik dan Penolakan Tanpa Luka</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="chapter-item" data-chapter="11">
+                        <div class="chapter-icon">
+                            <i class="fas fa-link"></i>
+                        </div>
+                        <div class="chapter-info">
+                            <h3>Bab 11: Relasi yang Bebas dari Rantai Ekspektasi</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="part-title">Bagian V – Hidup yang Tenang dan Bermakna</div>
+                    
+                    <div class="chapter-item" data-chapter="12">
+                        <div class="chapter-icon">
+                            <i class="fas fa-wind"></i>
+                        </div>
+                        <div class="chapter-info">
+                            <h3>Bab 12: Seni Menerima dan Melepaskan</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="chapter-item" data-chapter="13">
+                        <div class="chapter-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <div class="chapter-info">
+                            <h3>Bab 13: Menemukan Tujuan yang Lebih Besar dari Diri Sendiri</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="chapter-item" data-chapter="14">
+                        <div class="chapter-icon">
+                            <i class="fas fa-peace"></i>
+                        </div>
+                        <div class="chapter-info">
+                            <h3>Bab 14: Ketenangan Batin Adalah Kemenangan Tertinggi</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="chapter-item" data-chapter="15">
+                        <div class="chapter-icon">
+                            <i class="fas fa-road"></i>
+                        </div>
+                        <div class="chapter-info">
+                            <h3>Penutup: Jalan Panjang Menuju Diri Sendiri</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="chapter-item" data-chapter="16">
+                        <div class="chapter-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="chapter-info">
+                            <h3>Tentang Buku Ini</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="reader">
+                <button class="toggle-sidebar">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <h2 class="book-title">Berpikir Tenang, Hidup Ringan</h2>
+                <h3 class="chapter-title">Bab 1: Dunia Tidak Akan Pernah Bisa Kamu Kendalikan</h3>
+                
+                <div class="book-content-container">
+                    <div class="book-content">
+                        <p>Kita dibesarkan dalam dunia yang diam-diam mengajarkan kita satu ilusi berbahaya: bahwa jika kita cukup pintar, cukup baik, cukup rajin, dan cukup menyenangkan orang, maka dunia akan berlaku adil dan sesuai harapan kita.</p>
+                        
+                        <p>Namun hidup membuktikan sebaliknya.
+                        Kamu bisa bersikap baik, tapi tetap disalahpahami.
+                        Kamu bisa bekerja keras, tapi hasilnya tetap tidak sesuai.
+                        Kamu bisa mencintai sepenuh hati, tapi tetap ditinggalkan.</p>
+                        
+                        <p>Lalu kamu marah, kecewa, putus asa — bukan karena hidup kejam, tapi karena ekspektasimu tidak sesuai dengan kenyataan. Di sinilah kita mulai memahami pelajaran pertama dalam berpikir tenang:</p>
+                        
+                        <blockquote>
+                            Banyak hal dalam hidup ini tidak dan tidak akan pernah bisa kamu kendalikan.
+                        </blockquote>
+                        
+                        <h4>🔄 Dua Dunia: Dalam dan Luar</h4>
+                        
+                        <p>Filsafat Stoik dan Psikologi Individual Adlerian sama-sama mengajarkan pembagian yang sangat penting:</p>
+                        
+                        <div style="display: flex; justify-content: space-between; margin: 20px 0; flex-wrap: wrap;">
+                            <div style="flex: 1; min-width: 250px; padding: 15px; background: #e3f2fd; border-radius: 10px; margin: 10px;">
+                                <h4 style="text-align: center; margin-bottom: 10px; color: #1a2a6c;">Hal yang Bisa Dikendalikan</h4>
+                                <ul style="padding-left: 20px;">
+                                    <li>Pikiran kita</li>
+                                    <li>Perasaan kita</li>
+                                    <li>Pilihan kita</li>
+                                    <li>Reaksi kita</li>
+                                    <li>Nilai hidup kita</li>
+                                </ul>
+                            </div>
+                            
+                            <div style="flex: 1; min-width: 250px; padding: 15px; background: #ffebee; border-radius: 10px; margin: 10px;">
+                                <h4 style="text-align: center; margin-bottom: 10px; color: #c62828;">Hal yang Tidak Bisa Dikendalikan</h4>
+                                <ul style="padding-left: 20px;">
+                                    <li>Pikiran orang lain</li>
+                                    <li>Perasaan orang lain</li>
+                                    <li>Pilihan orang lain</li>
+                                    <li>Keadaan, cuaca, masa lalu</li>
+                                    <li>Omongan, pujian, hinaan</li>
+                                </ul>
                             </div>
                         </div>
                         
-                        <div class="form-group">
-                            <label for="ml-id" data-i18n="ml_id">ID MOBILE LEGENDS *</label>
-                            <div class="input-icon">
-                                <i class="fas fa-id-card"></i>
-                                <input type="text" id="ml-id" name="ml-id" required placeholder="Ex: 123456789(1234)" data-i18n-placeholder="ml_id_placeholder">
-                            </div>
-                        </div>
+                        <p>Filsuf Stoik Epictetus menyebut ini sebagai dikotomi kendali.
+                        Alfred Adler menyebutnya sebagai pembagian tugas: ada tugas kita, ada tugas orang lain, dan ada tugas Tuhan.
+                        Keduanya sepakat: menderita terjadi ketika kita mencampuri urusan yang bukan milik kita.</p>
                         
-                        <div class="form-group">
-                            <label for="rank" data-i18n="current_rank">RANK ATUAL *</label>
-                            <div class="input-icon">
-                                <i class="fas fa-trophy"></i>
-                                <select id="rank" name="rank" required>
-                                    <option value="" data-i18n="select_rank">Selecione seu rank</option>
-                                    <option value="warrior">Warrior</option>
-                                    <option value="elite">Elite</option>
-                                    <option value="master">Master</option>
-                                    <option value="grandmaster">Grandmaster</option>
-                                    <option value="epic">Epic</option>
-                                    <option value="legend">Legend</option>
-                                    <option value="mythic">Mythic</option>
-                                    <option value="mythic-honor">Mythic Honor</option>
-                                    <option value="mythic-immortal">Mythic Immortal</option>
-                                </select>
-                            </div>
-                        </div>
+                        <h4>🪞 Contoh Kecil yang Berakar Dalam</h4>
                         
-                        <div class="form-group">
-                            <label for="exp" data-i18n="competition_exp">EXPERIÊNCIA EM COMPETIÇÕES</label>
-                            <div class="input-icon">
-                                <i class="fas fa-history"></i>
-                                <input type="text" id="exp" name="exp" placeholder="Ex: Torneio local, MPL, etc." data-i18n-placeholder="exp_placeholder">
-                            </div>
+                        <p>Kamu menulis sesuatu di media sosial. Seseorang berkomentar buruk.</p>
+                        
+                        <p><strong>Faktor luar:</strong> Komentar dia.</p>
+                        <p><strong>Faktor dalam:</strong> Reaksi kamu — marah? tenang? menertawakan?</p>
+                        
+                        <p>Kamu ditolak saat melamar pekerjaan.</p>
+                        
+                        <p><strong>Faktor luar:</strong> Keputusan perusahaan.</p>
+                        <p><strong>Faktor dalam:</strong> Sikapmu setelahnya — menyerah? belajar? cari peluang lain?</p>
+                        
+                        <p>Latihan berpikir tenang dimulai dari membedakan dua faktor ini sebelum kita bereaksi.</p>
+                        
+                        <blockquote>
+                            Saat kamu sadar, "Ini bukan kendaliku," maka kamu akan lebih tenang — dan justru lebih kuat.
+                        </blockquote>
+                        
+                        <h4>⚖️ Mengapa Ini Sulit?</h4>
+                        
+                        <p>Karena kita manusia.
+                        Kita punya ego yang ingin diterima, ingin dianggap penting, ingin dicintai. Tapi dunia tidak selalu mengikuti keinginan itu.</p>
+                        
+                        <p>Dan di sinilah letak kebijaksanaan:</p>
+                        
+                        <blockquote>
+                            Ketenangan bukan berarti tidak merasa apa-apa, tapi tahu kapan harus merasa, dan kapan harus melepaskan.
+                        </blockquote>
+                        
+                        <h4>💡 Latihan Refleksi Hari Ini:</h4>
+                        
+                        <p>1. Tuliskan 3 hal yang kamu khawatirkan akhir-akhir ini.</p>
+                        
+                        <p>2. Dari masing-masing hal, tanyakan:</p>
+                        
+                        <p>"Apakah ini termasuk hal yang bisa aku kendalikan?"</p>
+                        
+                        <p>"Kalau tidak, apa hal kecil yang bisa aku lakukan dari dalam diriku?"</p>
+                        
+                        <h4>✨ Kutipan Penutup Bab:</h4>
+                        
+                        <blockquote>
+                            "Jika kamu ingin damai, jangan berharap dunia berubah. Ubahlah harapanmu."
+                            <br>
+                            <span style="font-style: normal; font-weight: bold;">– Marcus Aurelius</span>
+                        </blockquote>
+                    </div>
+                    
+                    <div class="progress-bar-container">
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 15%"></div>
                         </div>
+                        <div class="progress-text">15% selesai</div>
                     </div>
                 </div>
                 
-                <div class="form-group">
-                    <label data-i18n="main_role">FUNÇÃO PRINCIPAL *</label>
-                    <div class="role-grid">
-                        <div class="role-card" data-role="exp">
-                            <i class="fas fa-shield-alt"></i>
-                            <h3 data-i18n="role_exp">Exp Laner</h3>
-                            <p data-i18n="role_exp_desc">Sustento e pressão</p>
-                        </div>
-                        <div class="role-card" data-role="gold">
-                            <i class="fas fa-coins"></i>
-                            <h3 data-i18n="role_gold">Gold Laner</h3>
-                            <p data-i18n="role_gold_desc">Dano e carry</p>
-                        </div>
-                        <div class="role-card" data-role="mid">
-                            <i class="fas fa-bolt"></i>
-                            <h3 data-i18n="role_mid">Mid Laner</h3>
-                            <p data-i18n="role_mid_desc">Controle e rotação</p>
-                        </div>
-                        <div class="role-card" data-role="jungle">
-                            <i class="fas fa-paw"></i>
-                            <h3 data-i18n="role_jungle">Jungler</h3>
-                            <p data-i18n="role_jungle_desc">Ganks e objetivos</p>
-                        </div>
-                        <div class="role-card" data-role="roamer">
-                            <i class="fas fa-compass"></i>
-                            <h3 data-i18n="role_roamer">Roamer</h3>
-                            <p data-i18n="role_roamer_desc">Visão e suporte</p>
-                        </div>
-                    </div>
-                    <input type="hidden" id="funcao" name="funcao" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="heroes" data-i18n="strongest_heroes">HERÓIS MAIS FORTES (5 principais) *</label>
-                    <textarea id="heroes" name="heroes" required placeholder="Liste seus 5 heróis mais fortes, separados por vírgula (Ex: Chou, Fanny, Gusion, Pharsa, Atlas)" data-i18n-placeholder="heroes_placeholder"></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label for="motivacao" data-i18n="motivation">POR QUE QUER ENTRAR PARA TUF? *</label>
-                    <textarea id="motivacao" name="motivacao" required placeholder="Explique sua motivação para entrar no time..." data-i18n-placeholder="motivation_placeholder"></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label for="disponibilidade" data-i18n="availability">DISPONIBILIDADE DE HORÁRIOS *</label>
-                    <div class="checkbox-group">
-                        <div class="checkbox-option">
-                            <input type="checkbox" id="manha" name="disponibilidade" value="manha">
-                            <label for="manha" data-i18n="morning">Manhã (8h-12h)</label>
-                        </div>
-                        <div class="checkbox-option">
-                            <input type="checkbox" id="tarde" name="disponibilidade" value="tarde">
-                            <label for="tarde" data-i18n="afternoon">Tarde (14h-18h)</label>
-                        </div>
-                        <div class="checkbox-option">
-                            <input type="checkbox" id="noite" name="disponibilidade" value="noite">
-                            <label for="noite" data-i18n="evening">Noite (19h-23h)</label>
-                        </div>
-                        <div class="checkbox-option">
-                            <input type="checkbox" id="fds" name="disponibilidade" value="fds">
-                            <label for="fds" data-i18n="weekends">Finais de Semana</label>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="equipamento" data-i18n="equipment">EQUIPAMENTO QUE USA *</label>
-                    <div class="radio-group">
-                        <div class="radio-option">
-                            <input type="radio" id="celular" name="equipamento" value="celular" required>
-                            <label for="celular" data-i18n="mobile">Celular</label>
-                        </div>
-                        <div class="radio-option">
-                            <input type="radio" id="tablet" name="equipamento" value="tablet">
-                            <label for="tablet" data-i18n="tablet">Tablet</label>
-                        </div>
-                        <div class="radio-option">
-                            <input type="radio" id="emulador" name="equipamento" value="emulador">
-                            <label for="emulador" data-i18n="emulator">Emulador (PC)</label>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Adicionado reCAPTCHA -->
-                <div class="recaptcha-container">
-                    <div class="g-recaptcha" data-sitekey="6LcY7lspAAAAAJbE9Vx4q1u1LhQ5Iq3qg0Q4JYlL"></div>
-                </div>
-                
-                <div class="btn-container">
-                    <button type="submit" class="submit-btn">
-                        <i class="fas fa-paper-plane"></i> <span data-i18n="submit_btn">ENVIAR INSCRIÇÃO</span>
+                <div class="controls">
+                    <button class="btn btn-prev" id="prev-btn">
+                        <i class="fas fa-arrow-left"></i> <span>Sebelumnya</span>
                     </button>
-                    <p style="color: #a9b2c3; font-size: 0.9rem; max-width: 500px; text-align: center;" data-i18n="captcha_info">
-                        Esta aplicação está protegida por reCAPTCHA. Os dados serão enviados diretamente para o capitão Genjiro.
-                    </p>
+                    <div class="page-info">Bab 1 dari 16</div>
+                    <button class="btn btn-next" id="next-btn">
+                        <span>Selanjutnya</span> <i class="fas fa-arrow-right"></i>
+                    </button>
                 </div>
-            </form>
-        </div>
-        
-        <div class="captain-info">
-            <p data-i18n="contact_info">Para mais informações, entre em contato com nosso capitão:</p>
-            <p><strong data-i18n="captain">Capitão:</strong> Genjiro</p>
-            <p><strong>Email:</strong> dcstmaia@gmail.com</p>
-            <p><strong>WhatsApp:</strong> +670 76730208</p>
-        </div>
-        
-        <div class="contact-info">
-            <div class="contact-item">
-                <i class="fas fa-envelope"></i>
-                <span>dcstmaia@gmail.com</span>
-            </div>
-            <div class="contact-item">
-                <i class="fas fa-phone"></i>
-                <span>+670 76730208</span>
-            </div>
-            <div class="contact-item">
-                <i class="fab fa-whatsapp"></i>
-                <span>+670 76730208</span>
+                
+                <div class="settings">
+                    <button class="setting-btn" id="font-down">
+                        <i class="fas fa-font"></i>
+                        <i class="fas fa-minus" style="font-size: 0.7rem; position: absolute; margin-top: 8px;"></i>
+                        <span class="font-indicator">A-</span>
+                    </button>
+                    <button class="setting-btn" id="theme-dark">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button class="setting-btn" id="theme-sepia">
+                        <i class="fas fa-circle"></i>
+                    </button>
+                    <button class="setting-btn" id="theme-light">
+                        <i class="fas fa-sun"></i>
+                    </button>
+                    <button class="setting-btn" id="font-up">
+                        <i class="fas fa-font"></i>
+                        <i class="fas fa-plus" style="font-size: 0.7rem; position: absolute; margin-top: 8px;"></i>
+                        <span class="font-indicator">A+</span>
+                    </button>
+                    <button class="setting-btn" id="bookmark-chapter">
+                        <i class="fas fa-bookmark"></i>
+                    </button>
+                </div>
             </div>
         </div>
         
         <footer>
-            <p>© 2024 THE UCHIHA FAMILY ESPORTS TEAM. <span data-i18n="rights">Todos os direitos reservados.</span></p>
-            <p data-i18n="footer_text">Orgulhosamente representando Timor Leste no cenário de Mobile Legends</p>
+            &copy; 2023 Aplikasi Baca Buku Digital | "Berpikir Tenang, Hidup Ringan" - Ambrosio Da Costa
         </footer>
     </div>
 
     <script>
-        // Sistem Multibahasa
-        const translations = {
-            pt: {
-                form_title: "FORMULÁRIO DE INSCRIÇÃO",
-                how_it_works: "Como funciona o envio do formulário?",
-                step1: "Preencha todos os campos obrigatórios (*)",
-                step2: "Clique no botão \"ENVIAR INSCRIÇÃO\"",
-                step3: "Os dados serão enviados diretamente para o capitão Genjiro",
-                step4: "Você receberá uma confirmação por email",
-                step5: "O capitão entrará em contigo via WhatsApp para próximos passos",
-                note: "Nota:",
-                form_note: "Este formulário usa o serviço Formspree para enviar dados por email.",
-                full_name: "NOME COMPLETO *",
-                name_placeholder: "Seu nome completo",
-                age: "IDADE *",
-                age_placeholder: "Ex: 18",
-                city: "CIDADE *",
-                city_placeholder: "Sua cidade",
-                email: "EMAIL *",
-                email_placeholder: "seu@email.com",
-                whatsapp: "WHATSAPP *",
-                whatsapp_placeholder: "Ex: +670 76 123456",
-                ml_id: "ID MOBILE LEGENDS *",
-                ml_id_placeholder: "Ex: 123456789(1234)",
-                current_rank: "RANK ATUAL *",
-                select_rank: "Selecione seu rank",
-                competition_exp: "EXPERIÊNCIA EM COMPETIÇÕES",
-                exp_placeholder: "Ex: Torneio local, MPL, etc.",
-                main_role: "FUNÇÃO PRINCIPAL *",
-                role_exp: "Exp Laner",
-                role_exp_desc: "Sustento e pressão",
-                role_gold: "Gold Laner",
-                role_gold_desc: "Dano e carry",
-                role_mid: "Mid Laner",
-                role_mid_desc: "Controle e rotação",
-                role_jungle: "Jungler",
-                role_jungle_desc: "Ganks e objetivos",
-                role_roamer: "Roamer",
-                role_roamer_desc: "Visão e suporte",
-                strongest_heroes: "HERÓIS MAIS FORTES (5 principais) *",
-                heroes_placeholder: "Liste seus 5 heróis mais fortes, separados por vírgula (Ex: Chou, Fanny, Gusion, Pharsa, Atlas)",
-                motivation: "POR QUE QUER ENTRAR PARA TUF? *",
-                motivation_placeholder: "Explique sua motivação para entrar no time...",
-                availability: "DISPONIBILIDADE DE HORÁRIOS *",
-                morning: "Manhã (8h-12h)",
-                afternoon: "Tarde (14h-18h)",
-                evening: "Noite (19h-23h)",
-                weekends: "Finais de Semana",
-                equipment: "EQUIPAMENTO QUE USA *",
-                mobile: "Celular",
-                tablet: "Tablet",
-                emulator: "Emulador (PC)",
-                submit_btn: "ENVIAR INSCRIÇÃO",
-                contact_info: "Para mais informações, entre em contato com nosso capitão:",
-                captain: "Capitão:",
-                rights: "Todos os direitos reservados.",
-                footer_text: "Orgulhosamente representando Timor Leste no cenário de Mobile Legends",
-                success_msg: "Inscrição enviada com sucesso! O capitão Genjiro entrará em contato em breve.",
-                error_msg: "Erro ao enviar a inscrição. Por favor, entre em contato diretamente com o capitão.",
-                role_error: "Por favor, selecione sua função principal!",
-                sending: "Enviando inscrição...",
-                captcha_error: "Por favor, complete a verificação reCAPTCHA!",
-                captcha_info: "Esta aplicação está protegida por reCAPTCHA. Os dados serão enviados diretamente para o capitão Genjiro."
-            },
-            id: {
-                form_title: "FORMULIR PENDAFTARAN",
-                how_it_works: "Bagaimana cara pengiriman formulir?",
-                step1: "Isi semua kolom wajib (*)",
-                step2: "Klik tombol \"KIRIM PENDAFTARAN\"",
-                step3: "Data akan dikirim langsung ke kapten Genjiro",
-                step4: "Anda akan menerima konfirmasi melalui email",
-                step5: "Kapten akan menghubungi Anda melalui WhatsApp untuk langkah selanjutnya",
-                note: "Catatan:",
-                form_note: "Formulir ini menggunakan layanan Formspree untuk mengirim data melalui email.",
-                full_name: "NAMA LENGKAP *",
-                name_placeholder: "Nama lengkap Anda",
-                age: "USIA *",
-                age_placeholder: "Contoh: 18",
-                city: "KOTA *",
-                city_placeholder: "Kota Anda",
-                email: "EMAIL *",
-                email_placeholder: "email@anda.com",
-                whatsapp: "WHATSAPP *",
-                whatsapp_placeholder: "Contoh: +670 76 123456",
-                ml_id: "ID MOBILE LEGENDS *",
-                ml_id_placeholder: "Contoh: 123456789(1234)",
-                current_rank: "RANK SAAT INI *",
-                select_rank: "Pilih rank Anda",
-                competition_exp: "PENGALAMAN KOMPETISI",
-                exp_placeholder: "Contoh: Turnamen lokal, MPL, dll.",
-                main_role: "PERAN UTAMA *",
-                role_exp: "Exp Laner",
-                role_exp_desc: "Ketahanan dan tekanan",
-                role_gold: "Gold Laner",
-                role_gold_desc: "Kerusakan dan carry",
-                role_mid: "Mid Laner",
-                role_mid_desc: "Kontrol dan rotasi",
-                role_jungle: "Jungler",
-                role_jungle_desc: "Ganks dan objektif",
-                role_roamer: "Roamer",
-                role_roamer_desc: "Penglihatan dan dukungan",
-                strongest_heroes: "HERO TERKUAT (5 utama) *",
-                heroes_placeholder: "Daftar 5 hero terkuat Anda, dipisahkan koma (Contoh: Chou, Fanny, Gusion, Pharsa, Atlas)",
-                motivation: "KENAPA INGIN BERGABUNG DENGAN TUF? *",
-                motivation_placeholder: "Jelaskan motivasi Anda untuk bergabung dengan tim...",
-                availability: "KETERSEDIAAN JADWAL *",
-                morning: "Pagi (08:00-12:00)",
-                afternoon: "Siang (14:00-18:00)",
-                evening: "Malam (19:00-23:00)",
-                weekends: "Akhir Pekan",
-                equipment: "PERALATAN YANG DIGUNAKAN *",
-                mobile: "Ponsel",
-                tablet: "Tablet",
-                emulator: "Emulator (PC)",
-                submit_btn: "KIRIM PENDAFTARAN",
-                contact_info: "Untuk informasi lebih lanjut, hubungi kapten kami:",
-                captain: "Kapten:",
-                rights: "Hak cipta dilindungi.",
-                footer_text: "Dengan bangga mewakili Timor Leste di dunia Mobile Legends",
-                success_msg: "Pendaftaran berhasil dikirim! Kapten Genjiro akan segera menghubungi Anda.",
-                error_msg: "Gagal mengirim pendaftaran. Silakan hubungi kapten secara langsung.",
-                role_error: "Silakan pilih peran utama Anda!",
-                sending: "Mengirim pendaftaran...",
-                captcha_error: "Silakan selesaikan verifikasi reCAPTCHA!",
-                captcha_info: "Aplikasi ini dilindungi oleh reCAPTCHA. Data akan dikirim langsung ke Kapten Genjiro."
-            },
-            en: {
-                form_title: "REGISTRATION FORM",
-                how_it_works: "How does the form submission work?",
-                step1: "Fill in all required fields (*)",
-                step2: "Click the \"SUBMIT APPLICATION\" button",
-                step3: "Data will be sent directly to Captain Genjiro",
-                step4: "You will receive a confirmation by email",
-                step5: "The captain will contact you via WhatsApp for next steps",
-                note: "Note:",
-                form_note: "This form uses Formspree service to send data via email.",
-                full_name: "FULL NAME *",
-                name_placeholder: "Your full name",
-                age: "AGE *",
-                age_placeholder: "e.g., 18",
-                city: "CITY *",
-                city_placeholder: "Your city",
-                email: "EMAIL *",
-                email_placeholder: "your@email.com",
-                whatsapp: "WHATSAPP *",
-                whatsapp_placeholder: "e.g., +670 76 123456",
-                ml_id: "MOBILE LEGENDS ID *",
-                ml_id_placeholder: "e.g., 123456789(1234)",
-                current_rank: "CURRENT RANK *",
-                select_rank: "Select your rank",
-                competition_exp: "COMPETITION EXPERIENCE",
-                exp_placeholder: "e.g., Local tournaments, MPL, etc.",
-                main_role: "MAIN ROLE *",
-                role_exp: "Exp Laner",
-                role_exp_desc: "Sustain and pressure",
-                role_gold: "Gold Laner",
-                role_gold_desc: "Damage and carry",
-                role_mid: "Mid Laner",
-                role_mid_desc: "Control and rotation",
-                role_jungle: "Jungler",
-                role_jungle_desc: "Ganks and objectives",
-                role_roamer: "Roamer",
-                role_roamer_desc: "Vision and support",
-                strongest_heroes: "STRONGEST HEROES (top 5) *",
-                heroes_placeholder: "List your top 5 strongest heroes, separated by commas (e.g., Chou, Fanny, Gusion, Pharsa, Atlas)",
-                motivation: "WHY DO YOU WANT TO JOIN TUF? *",
-                motivation_placeholder: "Explain your motivation for joining the team...",
-                availability: "AVAILABILITY SCHEDULE *",
-                morning: "Morning (8AM-12PM)",
-                afternoon: "Afternoon (2PM-6PM)",
-                evening: "Evening (7PM-11PM)",
-                weekends: "Weekends",
-                equipment: "EQUIPMENT YOU USE *",
-                mobile: "Mobile",
-                tablet: "Tablet",
-                emulator: "Emulator (PC)",
-                submit_btn: "SUBMIT APPLICATION",
-                contact_info: "For more information, contact our captain:",
-                captain: "Captain:",
-                rights: "All rights reserved.",
-                footer_text: "Proudly representing Timor Leste in the Mobile Legends scene",
-                success_msg: "Application submitted successfully! Captain Genjiro will contact you shortly.",
-                error_msg: "Error submitting application. Please contact the captain directly.",
-                role_error: "Please select your main role!",
-                sending: "Submitting application...",
-                captcha_error: "Please complete the reCAPTCHA verification!",
-                captcha_info: "This application is protected by reCAPTCHA. Data will be sent directly to Captain Genjiro."
-            }
-        };
-
-        // Default language
-        let currentLang = 'pt';
-        
-        // Language selector functionality
-        document.querySelectorAll('.lang-btn').forEach(button => {
-            button.addEventListener('click', () => {
-                // Update UI
-                document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
-                
-                // Change language
-                currentLang = button.getAttribute('data-lang');
-                changeLanguage(currentLang);
-            });
-        });
-        
-        // Function to change language
-        function changeLanguage(lang) {
-            // Update all translatable elements
-            document.querySelectorAll('[data-i18n]').forEach(element => {
-                const key = element.getAttribute('data-i18n');
-                if (translations[lang][key]) {
-                    element.textContent = translations[lang][key];
-                }
-            });
+        document.addEventListener('DOMContentLoaded', function() {
+            // Toggle sidebar
+            const toggleBtn = document.querySelector('.toggle-sidebar');
+            const sidebar = document.querySelector('.sidebar');
             
-            // Update placeholders
-            document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
-                const key = element.getAttribute('data-i18n-placeholder');
-                if (translations[lang][key]) {
-                    element.placeholder = translations[lang][key];
-                }
-            });
-        }
-        
-        // Seleção de função principal
-        const roleCards = document.querySelectorAll('.role-card');
-        const roleInput = document.getElementById('funcao');
-        
-        roleCards.forEach(card => {
-            card.addEventListener('click', () => {
-                // Remove a seleção anterior
-                roleCards.forEach(c => c.classList.remove('selected'));
-                
-                // Adiciona seleção ao card clicado
-                card.classList.add('selected');
-                
-                // Atualiza o input hidden
-                roleInput.value = card.getAttribute('data-role');
-            });
-        });
-        
-        // Envio do formulário
-        document.getElementById('tuf-application').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Verifica se uma função foi selecionada
-            if (!roleInput.value) {
-                showMessage(translations[currentLang]['role_error'], 'error');
-                return;
-            }
-            
-            // Verifica reCAPTCHA
-            const recaptchaResponse = grecaptcha.getResponse();
-            if (!recaptchaResponse) {
-                showMessage(translations[currentLang]['captcha_error'], 'error');
-                return;
-            }
-            
-            // Configura o email de resposta
-            const email = document.getElementById('email').value;
-            document.getElementById('reply-email').value = email;
-            
-            // Exibe mensagem de carregamento
-            showMessage(translations[currentLang]['sending'], 'info');
-            
-            // Coleta os dados do formulário
-            const formData = new FormData(this);
-            formData.append('g-recaptcha-response', recaptchaResponse);
-            
-            // Endpoint Formspree correto para o seu email
-            const formEndpoint = 'https://formspree.io/f/mleqwzgo';
-            
-            // Envia os dados usando fetch
-            fetch(formEndpoint, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
+            toggleBtn.addEventListener('click', function() {
+                sidebar.classList.toggle('hidden');
+                // Update icon based on state
+                const icon = toggleBtn.querySelector('i');
+                if (sidebar.classList.contains('hidden')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-book');
                 } else {
-                    throw new Error('Erro no envio do formulário');
+                    icon.classList.remove('fa-book');
+                    icon.classList.add('fa-bars');
                 }
-            })
-            .then(data => {
-                if (data.ok) {
-                    showMessage(translations[currentLang]['success_msg'], 'success');
-                    this.reset();
-                    roleCards.forEach(c => c.classList.remove('selected'));
-                    roleInput.value = '';
-                    grecaptcha.reset();
-                } else {
-                    throw new Error('Erro na resposta do servidor');
-                }
-            })
-            .catch(error => {
-                showMessage(translations[currentLang]['error_msg'], 'error');
-                console.error('Erro:', error);
             });
-        });
-        
-        // Função para exibir mensagens
-        function showMessage(text, type) {
-            const messageDiv = document.getElementById('message');
-            messageDiv.textContent = text;
-            messageDiv.className = 'message ' + type;
-            messageDiv.style.display = 'block';
             
-            // Remove a mensagem após 5 segundos (exceto para mensagens de sucesso)
-            if (type !== 'success') {
-                setTimeout(() => {
-                    messageDiv.style.display = 'none';
-                }, 5000);
+            // Chapter selection
+            const chapterItems = document.querySelectorAll('.chapter-item');
+            const chapterTitle = document.querySelector('.chapter-title');
+            const bookContent = document.querySelector('.book-content');
+            const pageInfo = document.querySelector('.page-info');
+            const progressBar = document.querySelector('.progress');
+            const progressText = document.querySelector('.progress-text');
+            
+            // Full chapter content
+            const chapters = [
+                {
+                    title: "Bab 1: Dunia Tidak Akan Pernah Bisa Kamu Kendalikan",
+                    content: `
+                        <p>Kita dibesarkan dalam dunia yang diam-diam mengajarkan kita satu ilusi berbahaya: bahwa jika kita cukup pintar, cukup baik, cukup rajin, dan cukup menyenangkan orang, maka dunia akan berlaku adil dan sesuai harapan kita.</p>
+                        
+                        <p>Namun hidup membuktikan sebaliknya.
+                        Kamu bisa bersikap baik, tapi tetap disalahpahami.
+                        Kamu bisa bekerja keras, tapi hasilnya tetap tidak sesuai.
+                        Kamu bisa mencintai sepenuh hati, tapi tetap ditinggalkan.</p>
+                        
+                        <p>Lalu kamu marah, kecewa, putus asa — bukan karena hidup kejam, tapi karena ekspektasimu tidak sesuai dengan kenyataan. Di sinilah kita mulai memahami pelajaran pertama dalam berpikir tenang:</p>
+                        
+                        <blockquote>
+                            Banyak hal dalam hidup ini tidak dan tidak akan pernah bisa kamu kendalikan.
+                        </blockquote>
+                        
+                        <h4>🔄 Dua Dunia: Dalam dan Luar</h4>
+                        
+                        <p>Filsafat Stoik dan Psikologi Individual Adlerian sama-sama mengajarkan pembagian yang sangat penting:</p>
+                        
+                        <div style="display: flex; justify-content: space-between; margin: 20px 0; flex-wrap: wrap;">
+                            <div style="flex: 1; min-width: 250px; padding: 15px; background: #e3f2fd; border-radius: 10px; margin: 10px;">
+                                <h4 style="text-align: center; margin-bottom: 10px; color: #1a2a6c;">Hal yang Bisa Dikendalikan</h4>
+                                <ul style="padding-left: 20px;">
+                                    <li>Pikiran kita</li>
+                                    <li>Perasaan kita</li>
+                                    <li>Pilihan kita</li>
+                                    <li>Reaksi kita</li>
+                                    <li>Nilai hidup kita</li>
+                                </ul>
+                            </div>
+                            
+                            <div style="flex: 1; min-width: 250px; padding: 15px; background: #ffebee; border-radius: 10px; margin: 10px;">
+                                <h4 style="text-align: center; margin-bottom: 10px; color: #c62828;">Hal yang Tidak Bisa Dikendalikan</h4>
+                                <ul style="padding-left: 20px;">
+                                    <li>Pikiran orang lain</li>
+                                    <li>Perasaan orang lain</li>
+                                    <li>Pilihan orang lain</li>
+                                    <li>Keadaan, cuaca, masa lalu</li>
+                                    <li>Omongan, pujian, hinaan</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <p>Filsuf Stoik Epictetus menyebut ini sebagai dikotomi kendali.
+                        Alfred Adler menyebutnya sebagai pembagian tugas: ada tugas kita, ada tugas orang lain, dan ada tugas Tuhan.
+                        Keduanya sepakat: menderita terjadi ketika kita mencampuri urusan yang bukan milik kita.</p>
+                        
+                        <h4>🪞 Contoh Kecil yang Berakar Dalam</h4>
+                        
+                        <p>Kamu menulis sesuatu di media sosial. Seseorang berkomentar buruk.</p>
+                        
+                        <p><strong>Faktor luar:</strong> Komentar dia.</p>
+                        <p><strong>Faktor dalam:</strong> Reaksi kamu — marah? tenang? menertawakan?</p>
+                        
+                        <p>Kamu ditolak saat melamar pekerjaan.</p>
+                        
+                        <p><strong>Faktor luar:</strong> Keputusan perusahaan.</p>
+                        <p><strong>Faktor dalam:</strong> Sikapmu setelahnya — menyerah? belajar? cari peluang lain?</p>
+                        
+                        <p>Latihan berpikir tenang dimulai dari membedakan dua faktor ini sebelum kita bereaksi.</p>
+                        
+                        <blockquote>
+                            Saat kamu sadar, "Ini bukan kendaliku," maka kamu akan lebih tenang — dan justru lebih kuat.
+                        </blockquote>
+                        
+                        <h4>⚖️ Mengapa Ini Sulit?</h4>
+                        
+                        <p>Karena kita manusia.
+                        Kita punya ego yang ingin diterima, ingin dianggap penting, ingin dicintai. Tapi dunia tidak selalu mengikuti keinginan itu.</p>
+                        
+                        <p>Dan di sinilah letak kebijaksanaan:</p>
+                        
+                        <blockquote>
+                            Ketenangan bukan berarti tidak merasa apa-apa, tapi tahu kapan harus merasa, dan kapan harus melepaskan.
+                        </blockquote>
+                        
+                        <h4>💡 Latihan Refleksi Hari Ini:</h4>
+                        
+                        <p>1. Tuliskan 3 hal yang kamu khawatirkan akhir-akhir ini.</p>
+                        
+                        <p>2. Dari masing-masing hal, tanyakan:</p>
+                        
+                        <p>"Apakah ini termasuk hal yang bisa aku kendalikan?"</p>
+                        
+                        <p>"Kalau tidak, apa hal kecil yang bisa aku lakukan dari dalam diriku?"</p>
+                        
+                        <h4>✨ Kutipan Penutup Bab:</h4>
+                        
+                        <blockquote>
+                            "Jika kamu ingin damai, jangan berharap dunia berubah. Ubahlah harapanmu."
+                            <br>
+                            <span style="font-style: normal; font-weight: bold;">– Marcus Aurelius</span>
+                        </blockquote>
+                    `
+                },
+                {
+                    title: "Bab 2: Ketenangan Adalah Pilihan, Bukan Hadiah",
+                    content: `
+                        <p>Banyak orang mengira ketenangan datang ketika hidup akhirnya beres: tidak ada masalah, tidak ada drama, tidak ada orang toksik. Mereka berkata, "Aku bakal tenang kalau gajiku cukup, kalau orang tuaku ngerti aku, kalau dia minta maaf."</p>
+                        
+                        <p>Padahal, kalau kita terus menunggu kondisi luar berubah, kita akan terus menjadi korban keadaan.</p>
+                        
+                        <blockquote>
+                            Ketenangan bukan datang dari luar. Ketenangan datang ketika kamu berhenti bereaksi secara otomatis.
+                        </blockquote>
+                        
+                        <h4>🔁 Reaksi vs. Respon</h4>
+                        
+                        <p><strong>Reaksi:</strong> spontan, tanpa sadar, sering dikendalikan emosi.</p>
+                        <p><strong>Respon:</strong> sadar, terlatih, berasal dari nilai dan pemahaman.</p>
+                        
+                        <p>Bayangkan seseorang menghina kamu. Reaksi otomatismu mungkin marah, ingin membalas. Tapi jika kamu diam sejenak, menarik napas, dan mengingat prinsipmu, kamu bisa memilih untuk tidak membalas.
+                        Itulah kebebasan sejati: bukan kebebasan untuk melakukan apapun, tapi kebebasan untuk memilih cara kita bertindak.</p>
+                        
+                        <h4>🧠 Stoikisme dan Psikologi Adler</h4>
+                        
+                        <p>Stoikisme mengajarkan: "Bukan kejadian yang menyakitkan kita, tapi cara kita menafsirkannya."</p>
+                        
+                        <p>Adlerian berkata: "Semua gangguan mental muncul dari kepercayaan keliru bahwa kita tidak punya pilihan."</p>
+                        
+                        <p>Jadi, selama kamu masih merasa harus marah, harus baper, harus putus asa — kamu sedang lupa bahwa kamu punya pilihan.</p>
+                        
+                        <h4>🛠️ Latihan Hari Ini:</h4>
+                        
+                        <p>1. Ketika kamu terganggu, tunda respon selama 10 detik. Ambil napas.</p>
+                        
+                        <p>2. Tanyakan:</p>
+                        
+                        <p>"Apa pilihan bijak yang sesuai dengan nilai hidupku?"</p>
+                        
+                        <p>"Apa dampaknya kalau aku bereaksi otomatis sekarang?"</p>
+                        
+                        <p>Ketenangan tidak muncul tiba-tiba. Ia muncul setiap kali kamu memilih respon yang tenang — dan itu adalah latihan seumur hidup.</p>
+                        
+                        <h4>✨ Kutipan Penutup Bab:</h4>
+                        
+                        <blockquote>
+                            "Orang yang kuat bukan yang tidak pernah marah, tapi yang bisa memilih kapan marah dan kapan diam."
+                            <br>
+                            <span style="font-style: normal; font-weight: bold;">– Seneca</span>
+                        </blockquote>
+                    `
+                },
+                {
+                    title: "Bab 3: Berani Bertanggung Jawab Penuh",
+                    content: `
+                        <p>Apa kamu pernah menyalahkan masa lalu atas siapa kamu hari ini?</p>
+                        
+                        <p>"Aku begini karena didikan orang tuaku."</p>
+                        <p>"Aku trauma karena masa kecilku tidak bahagia."</p>
+                        <p>"Aku takut gagal karena dulu pernah diremehkan."</p>
+                        
+                        <p>Ya, semua itu mungkin benar. Tapi kalau kita terus memegang narasi itu, kita akan selamanya menjadi produk masa lalu, bukan pencipta masa depan.</p>
+                        
+                        <h4>🔗 Menolak Peran Korban</h4>
+                        
+                        <p>Alfred Adler mengatakan:</p>
+                        
+                        <blockquote>
+                            "Masalah psikologis bukan datang dari pengalaman, tapi dari makna yang kita berikan pada pengalaman itu."
+                        </blockquote>
+                        
+                        <p>Artinya:
+                        Kamu bisa saja dibesarkan dalam keluarga yang keras, tapi tetap memilih untuk bersikap lembut.
+                        Kamu bisa saja dulu gagal, tapi tetap memilih untuk mencoba lagi.</p>
+                        
+                        <p>Berani bertanggung jawab penuh bukan berarti menyalahkan diri sendiri, tapi mengakui bahwa:</p>
+                        
+                        <blockquote>
+                            "Mulai hari ini, aku bertanggung jawab atas arah hidupku, apapun yang terjadi di masa lalu."
+                        </blockquote>
+                        
+                        <h4>🔄 Stoikisme dan Tanggung Jawab</h4>
+                        
+                        <p>Stoikisme tidak mengajari kita pasrah. Ia justru menantang kita:</p>
+                        
+                        <blockquote>
+                            "Kalau kamu tidak bisa mengubah hal di luar, maka ubahlah dirimu."
+                        </blockquote>
+                        
+                        <p>Kamu tidak bisa memilih siapa orang tuamu. Tapi kamu bisa memilih bagaimana kamu memperlakukan orang lain sekarang.
+                        Kamu tidak bisa menghapus masa lalu. Tapi kamu bisa memilih makna baru atas pengalaman itu.</p>
+                        
+                        <h4>🛠️ Latihan Hari Ini:</h4>
+                        
+                        <p>1. Tulis satu kejadian masa lalu yang membuatmu terluka.</p>
+                        
+                        <p>2. Tanyakan:</p>
+                        
+                        <p>"Apakah aku masih membawa luka ini sebagai alasan?"</p>
+                        
+                        <p>"Bagaimana aku bisa memberi makna baru dari sudut tanggung jawab?"</p>
+                        
+                        <p>Contoh:</p>
+                        
+                        <p>Dulu kamu dihina karena bodoh → sekarang kamu belajar lebih giat, bukan untuk balas dendam, tapi karena kamu layak berkembang.</p>
+                        
+                        <h4>✨ Kutipan Penutup Bab:</h4>
+                        
+                        <blockquote>
+                            "Kamu bukan apa yang telah terjadi padamu. Kamu adalah apa yang kamu pilih untuk jadi hari ini."
+                            <br>
+                            <span style="font-style: normal; font-weight: bold;">– Carl Jung</span>
+                        </blockquote>
+                    `
+                },
+                {
+                    title: "Bab 4: Hidup Tanpa Perlu Disukai Semua Orang",
+                    content: `
+                        <p>Sejak kecil kita diajari untuk menjadi anak yang disukai: disukai orang tua, disukai guru, disukai teman. Tanpa sadar, kita tumbuh dengan keyakinan bahwa hidup yang baik adalah hidup yang disukai semua orang.</p>
+                        
+                        <p>Tapi Adler menantang keyakinan ini:</p>
+                        
+                        <blockquote>
+                            "Kebebasan sejati adalah ketika kamu berhenti mencari persetujuan orang lain."
+                        </blockquote>
+                        
+                        <p>Bayangkan energi yang terbuang hanya untuk membuat semua orang menyukaimu. Padahal, semakin kamu mencoba disukai semua orang, semakin kamu kehilangan dirimu sendiri.</p>
+                        
+                        <h4>⚖️ Dilema Disukai vs. Dipercaya</h4>
+                        
+                        <p>Stoikisme mengajarkan:</p>
+                        
+                        <blockquote>
+                            "Lebih baik dihormati karena integritasmu daripada disukai karena kepalsuanmu."
+                        </blockquote>
+                        
+                        <p>Fokus pada menjadi orang yang bisa dipercaya, bukan orang yang selalu disukai. Kepercayaan datang dari konsistensi dan integritas, bukan dari menyenangkan semua orang.</p>
+                        
+                        <h4>🛠️ Latihan Hari Ini:</h4>
+                        
+                        <p>1. Tulis satu situasi di mana kamu mengorbankan pendapatmu demi disukai.</p>
+                        
+                        <p>2. Tanyakan: "Apa yang akan aku lakukan jika aku tidak takut ditolak?"</p>
+                        
+                        <h4>✨ Kutipan Penutup Bab:</h4>
+                        
+                        <blockquote>
+                            "Tidak semua orang harus menyukaimu, dan itu tidak masalah."
+                            <br>
+                            <span style="font-style: normal; font-weight: bold;">– Epictetus</span>
+                        </blockquote>
+                    `
+                },
+                {
+                    title: "Bab 5: Melepaskan Topeng, Menemukan Diri",
+                    content: `
+                        <p>Setiap hari kita memakai berbagai topeng: topeng karyawan yang sempurna, topeng anak yang baik, topeng teman yang selalu tersedia. Tanpa sadar, kita lupa siapa diri kita di balik semua topeng itu.</p>
+                        
+                        <p>Adler mengingatkan:</p>
+                        
+                        <blockquote>
+                            "Kamu tidak perlu menjadi siapa-siapa untuk diterima. Kamu sudah cukup sebagai dirimu sendiri."
+                        </blockquote>
+                        
+                        <h4>🔍 Mengapa Kita Memakai Topeng?</h4>
+                        
+                        <p>Karena takut:</p>
+                        <ul>
+                            <li>Takut tidak diterima</li>
+                            <li>Takut dihakimi</li>
+                            <li>Takut kehilangan cinta</li>
+                        </ul>
+                        
+                        <p>Tapi hidup dengan topeng justru membuat kita semakin terasing dari diri sendiri dan orang lain.</p>
+                        
+                        <h4>🕊️ Keberanian untuk Jujur</h4>
+                        
+                        <p>Stoikisme mengajarkan kejujuran pada diri sendiri:</p>
+                        
+                        <blockquote>
+                            "Kenali dirimu, terima dirimu, lalu hidup sesuai dengan nilai-nilaimu."
+                        </blockquote>
+                        
+                        <p>Melepaskan topeng bukan berarti menjadi egois, tapi menjadi otentik.</p>
+                        
+                        <h4>🛠️ Latihan Hari Ini:</h4>
+                        
+                        <p>1. Tulis tiga hal yang kamu sembunyikan dari orang lain.</p>
+                        
+                        <p>2. Tanyakan: "Apa yang terjadi jika aku jujur tentang hal ini?"</p>
+                        
+                        <h4>✨ Kutipan Penutup Bab:</h4>
+                        
+                        <blockquote>
+                            "Keaslian adalah keberanian untuk menjadi tidak sempurna."
+                            <br>
+                            <span style="font-style: normal; font-weight: bold;">– Brené Brown</span>
+                        </blockquote>
+                    `
+                }
+            ];
+            
+            let currentChapter = 0;
+            
+            chapterItems.forEach((item, index) => {
+                item.addEventListener('click', function() {
+                    // Remove active class from all items
+                    chapterItems.forEach(i => i.classList.remove('active'));
+                    // Add active class to clicked item
+                    this.classList.add('active');
+                    
+                    // Update chapter content
+                    currentChapter = index;
+                    updateChapter();
+                    
+                    // Auto-close sidebar on mobile
+                    if (window.innerWidth < 992) {
+                        sidebar.classList.add('hidden');
+                        toggleBtn.querySelector('i').classList.remove('fa-bars');
+                        toggleBtn.querySelector('i').classList.add('fa-book');
+                    }
+                });
+            });
+            
+            function updateChapter() {
+                if (currentChapter < chapters.length) {
+                    chapterTitle.textContent = chapters[currentChapter].title;
+                    bookContent.innerHTML = chapters[currentChapter].content;
+                    pageInfo.textContent = `Bab ${currentChapter + 1} dari ${chapterItems.length}`;
+                    
+                    // Update progress
+                    const progressPercentage = Math.round(((currentChapter + 1) / chapterItems.length) * 100);
+                    progressBar.style.width = `${progressPercentage}%`;
+                    progressText.textContent = `${progressPercentage}% selesai`;
+                    
+                    // Update button states
+                    prevBtn.disabled = currentChapter === 0;
+                    nextBtn.disabled = currentChapter === chapterItems.length - 1;
+                }
             }
-        }
-        
-        // Efeito de digitação no título
-        const teamName = document.querySelector('.team-name h1');
-        const originalText = teamName.textContent;
-        teamName.textContent = '';
-        
-        let i = 0;
-        const typingEffect = setInterval(() => {
-            if (i < originalText.length) {
-                teamName.textContent += originalText.charAt(i);
-                i++;
-            } else {
-                clearInterval(typingEffect);
+            
+            // Navigation buttons
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            
+            prevBtn.addEventListener('click', function() {
+                if (currentChapter > 0) {
+                    currentChapter--;
+                    updateChapter();
+                    // Update active chapter in sidebar
+                    chapterItems.forEach(i => i.classList.remove('active'));
+                    chapterItems[currentChapter].classList.add('active');
+                    
+                    // Scroll to top of content
+                    bookContent.scrollTop = 0;
+                }
+            });
+            
+            nextBtn.addEventListener('click', function() {
+                if (currentChapter < chapterItems.length - 1) {
+                    currentChapter++;
+                    updateChapter();
+                    // Update active chapter in sidebar
+                    chapterItems.forEach(i => i.classList.remove('active'));
+                    chapterItems[currentChapter].classList.add('active');
+                    
+                    // Scroll to top of content
+                    bookContent.scrollTop = 0;
+                }
+            });
+            
+            // Theme settings
+            const themeDark = document.getElementById('theme-dark');
+            const themeSepia = document.getElementById('theme-sepia');
+            const themeLight = document.getElementById('theme-light');
+            const reader = document.querySelector('.reader');
+            
+            themeDark.addEventListener('click', function() {
+                reader.classList.add('theme-dark');
+                reader.classList.remove('theme-sepia');
+            });
+            
+            themeSepia.addEventListener('click', function() {
+                reader.classList.add('theme-sepia');
+                reader.classList.remove('theme-dark');
+            });
+            
+            themeLight.addEventListener('click', function() {
+                reader.classList.remove('theme-dark');
+                reader.classList.remove('theme-sepia');
+            });
+            
+            // Font size adjustment
+            const fontDown = document.getElementById('font-down');
+            const fontUp = document.getElementById('font-up');
+            let fontSize = 16;
+            
+            fontDown.addEventListener('click', function() {
+                if (fontSize > 14) {
+                    fontSize -= 2;
+                    bookContent.style.fontSize = fontSize + 'px';
+                }
+            });
+            
+            fontUp.addEventListener('click', function() {
+                if (fontSize < 24) {
+                    fontSize += 2;
+                    bookContent.style.fontSize = fontSize + 'px';
+                }
+            });
+            
+            // Bookmark functionality
+            const bookmarkBtn = document.getElementById('bookmark-btn');
+            const bookmarkChapter = document.getElementById('bookmark-chapter');
+            let isBookmarked = false;
+            
+            bookmarkBtn.addEventListener('click', function() {
+                isBookmarked = !isBookmarked;
+                const icon = this.querySelector('i');
+                if (isBookmarked) {
+                    icon.classList.remove('fa-bookmark');
+                    icon.classList.add('fa-bookmark', 'fas', 'fa-bookmark');
+                    this.style.color = '#ffd700';
+                    alert(`Bab ${currentChapter + 1} ditandai!`);
+                } else {
+                    icon.classList.remove('fa-bookmark');
+                    icon.classList.add('fa-bookmark', 'far', 'fa-bookmark');
+                    this.style.color = 'white';
+                }
+            });
+            
+            bookmarkChapter.addEventListener('click', function() {
+                isBookmarked = !isBookmarked;
+                if (isBookmarked) {
+                    this.style.color = '#ff6b6b';
+                    alert(`Bab ${currentChapter + 1} ditandai!`);
+                } else {
+                    this.style.color = '#2c3e50';
+                }
+            });
+            
+            // Fullscreen functionality
+            const fullscreenBtn = document.getElementById('fullscreen-btn');
+            
+            fullscreenBtn.addEventListener('click', function() {
+                if (!document.fullscreenElement) {
+                    document.documentElement.requestFullscreen();
+                    this.innerHTML = '<i class="fas fa-compress"></i>';
+                } else {
+                    if (document.exitFullscreen) {
+                        document.exitFullscreen();
+                        this.innerHTML = '<i class="fas fa-expand"></i>';
+                    }
+                }
+            });
+            
+            // Initialize page
+            updateChapter();
+            
+            // Auto-detect mobile and close sidebar
+            if (window.innerWidth < 992) {
+                sidebar.classList.add('hidden');
+                toggleBtn.querySelector('i').classList.add('fa-book');
+                toggleBtn.querySelector('i').classList.remove('fa-bars');
             }
-        }, 100);
+        });
     </script>
 </body>
 </html>

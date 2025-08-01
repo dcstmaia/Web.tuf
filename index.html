@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Berpikir Tenang, Hidup Ringan - Baca Buku Digital</title>
+    <title>Ledi - Pembelahan Sel (PMAT)</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -13,1414 +13,514 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
+        :root {
+            --primary: #1a237e;
+            --secondary: #4a148c;
+            --accent: #e91e63;
+            --light: #f5f5f5;
+            --dark: #121212;
+            --prophase: #3f51b5;
+            --metaphase: #009688;
+            --anaphase: #ff5722;
+            --telophase: #9c27b0;
+        }
+
         body {
-            background: linear-gradient(135deg, #1a2a6c, #2c3e50);
+            background: linear-gradient(135deg, #1a237e, #4a148c);
+            color: var(--light);
+            line-height: 1.6;
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             padding: 20px;
-            color: #333;
+            background-attachment: fixed;
         }
 
         .container {
-            max-width: 1400px;
-            width: 98%;
-            height: 95vh;
-            background-color: rgba(255, 255, 255, 0.97);
-            border-radius: 20px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         header {
-            background: linear-gradient(to right, #2c3e50, #1a2a6c);
-            color: white;
-            padding: 15px 20px;
             text-align: center;
+            padding: 30px 20px 20px;
             position: relative;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 15px;
+            margin-bottom: 20px;
         }
 
         .logo {
-            font-size: 2.2rem;
-            color: #ffd700;
-        }
-
-        .header-text {
-            text-align: left;
-        }
-
-        header h1 {
-            font-size: 1.8rem;
-            margin-bottom: 5px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        header .subtitle {
-            font-size: 0.95rem;
-            opacity: 0.9;
-            max-width: 700px;
-            font-style: italic;
-        }
-
-        .author {
-            font-size: 0.9rem;
-            color: #ffd700;
-        }
-
-        .header-controls {
-            display: flex;
-            gap: 10px;
-        }
-
-        .header-btn {
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        .header-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: scale(1.05);
-        }
-
-        .main-content {
-            display: flex;
-            flex: 1;
-            overflow: hidden;
-            height: calc(100% - 150px);
-        }
-
-        .sidebar {
-            width: 300px;
-            background-color: #f5f7fa;
-            padding: 15px;
-            border-right: 1px solid #e0e6ed;
-            overflow-y: auto;
-            transition: all 0.3s ease;
-        }
-
-        .sidebar.hidden {
-            transform: translateX(-100%);
-            opacity: 0;
-            width: 0;
-            padding: 0;
-            border: none;
-        }
-
-        .toggle-sidebar {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: #3498db;
-            border: none;
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 10;
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .toggle-sidebar:hover {
-            transform: scale(1.1);
-        }
-
-        .book-list {
-            margin-top: 10px;
-        }
-
-        .book-list h2 {
-            color: #2c3e50;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #3498db;
-            font-size: 1.3rem;
-        }
-
-        .part-title {
-            background: #e3f2fd;
-            padding: 10px;
-            border-radius: 8px;
-            margin-bottom: 10px;
+            font-size: 2.8rem;
             font-weight: bold;
-            color: #1a2a6c;
-            font-size: 1.05rem;
-        }
-
-        .chapter-item {
-            background: white;
-            border-radius: 10px;
-            padding: 12px 15px;
+            color: #fff;
             margin-bottom: 10px;
-            cursor: pointer;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #ffeb3b;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #ffeb3b;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .language-switcher {
             display: flex;
-            align-items: center;
-            border-left: 4px solid #3498db;
-        }
-
-        .chapter-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-            border-left: 4px solid #ff6b6b;
-        }
-
-        .chapter-item.active {
-            background: #e3f2fd;
-            border-left: 4px solid #ff6b6b;
-            font-weight: bold;
-        }
-
-        .chapter-icon {
-            margin-right: 12px;
-            font-size: 1.1rem;
-            color: #2c3e50;
-        }
-
-        .chapter-info {
-            flex: 1;
-        }
-
-        .chapter-info h3 {
-            font-size: 1rem;
-            margin-bottom: 3px;
-            color: #2c3e50;
-        }
-
-        .chapter-info p {
-            font-size: 0.8rem;
-            color: #7f8c8d;
-            margin-bottom: 3px;
-        }
-
-        .reader {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            padding: 20px;
-            overflow: hidden;
-            position: relative;
-            height: 100%;
-        }
-
-        .book-title {
-            text-align: center;
-            margin-bottom: 15px;
-            color: #2c3e50;
-            font-size: 1.5rem;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #e0e6ed;
-        }
-
-        .chapter-title {
-            text-align: center;
-            color: #1a2a6c;
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-            font-weight: 600;
-        }
-
-        .book-content-container {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        .book-content {
-            flex: 1;
-            overflow-y: auto;
-            padding: 25px;
-            background-color: #f9f9f9;
-            border-radius: 15px;
-            border: 1px solid #e0e6ed;
-            line-height: 1.8;
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
-            height: calc(100% - 150px);
-        }
-
-        .book-content h4 {
-            color: #1a2a6c;
-            margin: 20px 0 10px;
-            font-size: 1.25rem;
-        }
-
-        .book-content p {
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-
-        .book-content blockquote {
-            background: #e3f2fd;
-            border-left: 4px solid #3498db;
-            padding: 15px 20px;
-            margin: 20px 0;
-            border-radius: 0 8px 8px 0;
-            font-style: italic;
-            color: #2c3e50;
-        }
-
-        .progress-bar-container {
-            margin: 10px 0;
-        }
-
-        .progress-bar {
-            height: 6px;
-            background: #e0e6ed;
-            border-radius: 3px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .progress {
-            height: 100%;
-            background: #27ae60;
-            width: 0%;
-            transition: width 0.3s ease;
-        }
-
-        .progress-text {
-            font-size: 0.85rem;
-            text-align: right;
-            color: #7f8c8d;
-            margin-top: 3px;
-        }
-
-        .controls {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-            border-top: 1px solid #e0e6ed;
-        }
-
-        .btn {
-            padding: 12px 25px;
-            background: #3498db;
-            color: white;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
-            background: #2980b9;
-        }
-
-        .btn:disabled {
-            background: #bdc3c7;
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
-        }
-
-        .btn.btn-prev {
-            background: #2c3e50;
-        }
-
-        .btn.btn-prev:hover {
-            background: #1a252f;
-        }
-
-        .btn.btn-next {
-            background: #27ae60;
-        }
-
-        .btn.btn-next:hover {
-            background: #219653;
-        }
-
-        .page-info {
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: #2c3e50;
-            background: #ecf0f1;
-            padding: 8px 20px;
-            border-radius: 30px;
-        }
-
-        .settings {
-            display: flex;
-            gap: 15px;
-            align-items: center;
             justify-content: center;
-            margin-top: 10px;
+            gap: 12px;
+            margin: 20px 0 30px;
             flex-wrap: wrap;
         }
 
-        .setting-btn {
-            background: #ecf0f1;
-            border: none;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #2c3e50;
-            font-size: 1.2rem;
+            font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-            position: relative;
+            min-width: 120px;
         }
 
-        .setting-btn:hover {
-            background: #3498db;
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+        }
+
+        .lang-btn.active {
+            background: #fff;
+            color: var(--primary);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .intro {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px auto;
+            max-width: 900px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .intro p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            text-align: center;
+        }
+
+        .stages-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .stage-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .stage-card:hover {
+            transform: translateY(-10px) scale(1.02);
+        }
+
+        .card-header {
+            padding: 25px 20px;
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 700;
             color: white;
-            transform: rotate(15deg) scale(1.1);
         }
 
-        .font-indicator {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            background: #ff6b6b;
+        .prophase .card-header { background: var(--prophase); }
+        .metaphase .card-header { background: var(--metaphase); }
+        .anaphase .card-header { background: var(--anaphase); }
+        .telophase .card-header { background: var(--telophase); }
+
+        .card-content {
+            padding: 25px;
+            color: var(--dark);
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stage-icon {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .prophase .stage-icon { color: var(--prophase); }
+        .metaphase .stage-icon { color: var(--metaphase); }
+        .anaphase .stage-icon { color: var(--anaphase); }
+        .telophase .stage-icon { color: var(--telophase); }
+
+        .card-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+            text-align: center;
+        }
+
+        .card-content p {
+            margin-bottom: 15px;
+            font-size: 1rem;
+            line-height: 1.6;
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .phase-number {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: var(--primary);
             color: white;
             border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            font-size: 0.7rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .theme-dark .book-content {
-            background-color: #2c3e50;
-            color: #ecf0f1;
-        }
-
-        .theme-dark .book-content h4 {
-            color: #ffd700;
-        }
-
-        .theme-dark .book-content blockquote {
-            background: #34495e;
-            color: #ecf0f1;
-            border-left: 4px solid #ffd700;
-        }
-
-        .theme-sepia .book-content {
-            background-color: #fbf0d9;
-            color: #5d4037;
-        }
-
-        .theme-sepia .book-content h4 {
-            color: #8d6e63;
-        }
-
-        .theme-sepia .book-content blockquote {
-            background: #e6d2aa;
-            color: #5d4037;
-            border-left: 4px solid #8d6e63;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 10px;
+            font-weight: bold;
         }
 
         footer {
-            background: #2c3e50;
-            color: white;
             text-align: center;
-            padding: 12px;
-            font-size: 0.85rem;
-        }
-
-        /* Responsive design */
-        @media (max-width: 992px) {
-            .container {
-                height: 95vh;
-            }
-            
-            .sidebar {
-                width: 280px;
-                position: absolute;
-                height: 100%;
-                z-index: 5;
-                left: 0;
-                top: 0;
-                padding-top: 60px;
-            }
-            
-            .toggle-sidebar {
-                display: flex;
-            }
-            
-            .main-content {
-                position: relative;
-            }
-            
-            .book-title {
-                font-size: 1.4rem;
-            }
-            
-            .chapter-title {
-                font-size: 1.2rem;
-            }
-            
-            .btn {
-                padding: 10px 15px;
-                font-size: 0.9rem;
-            }
-            
-            .reader {
-                padding: 15px;
-            }
-            
-            .book-content {
-                padding: 20px;
-            }
+            padding: 30px;
+            margin-top: 40px;
+            font-size: 1.1rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            font-style: italic;
         }
 
         @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                gap: 10px;
+            .logo {
+                font-size: 2.2rem;
             }
             
-            .header-left {
-                flex-direction: column;
-                text-align: center;
+            h1 {
+                font-size: 2rem;
             }
             
-            .header-text {
-                text-align: center;
+            .stages-container {
+                grid-template-columns: 1fr;
             }
             
-            .header-controls {
-                margin-top: 10px;
-            }
-            
-            .book-content {
-                padding: 15px;
-                font-size: 1rem;
-            }
-            
-            .book-content h4 {
-                font-size: 1.15rem;
-            }
-            
-            .page-info {
-                font-size: 0.95rem;
-                padding: 6px 15px;
-            }
-            
-            .btn {
-                padding: 8px 12px;
+            .lang-btn {
+                padding: 8px 15px;
+                min-width: 100px;
+                font-size: 0.9rem;
             }
         }
 
-        @media (max-width: 480px) {
-            .container {
-                width: 100%;
-                height: 100vh;
-                border-radius: 0;
-            }
-            
-            body {
-                padding: 0;
-            }
-            
-            .book-content {
-                padding: 12px;
-                font-size: 0.95rem;
-            }
-            
-            .book-content h4 {
-                font-size: 1.1rem;
-            }
-            
-            .page-info {
-                display: none;
-            }
-            
-            .controls {
-                justify-content: space-around;
-            }
-            
-            .btn span {
-                display: none;
-            }
-            
-            .btn i {
-                margin: 0;
-            }
-            
-            .btn {
-                width: 50px;
-                height: 50px;
-                border-radius: 50%;
-                padding: 0;
-                justify-content: center;
-            }
+        .cell-division-animation {
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(to bottom, #f5f5f5, #e0e0e0);
+            border-radius: 10px;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nucleus {
+            position: absolute;
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .chromosome {
+            position: absolute;
+            background: #e91e63;
+            border-radius: 3px;
+        }
+
+        /* Animations for each phase */
+        .prophase-animation .nucleus {
+            width: 80px;
+            height: 80px;
+            background: #3f51b5;
+            animation: prophasePulse 3s infinite;
+        }
+
+        @keyframes prophasePulse {
+            0% { transform: scale(1); opacity: 0.9; }
+            50% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.9; }
+        }
+
+        .metaphase-animation .nucleus {
+            width: 100px;
+            height: 100px;
+            background: #009688;
+        }
+
+        .metaphase-animation .chromosome {
+            width: 6px;
+            height: 25px;
+            animation: metaphaseAlign 4s infinite;
+        }
+
+        @keyframes metaphaseAlign {
+            0%, 100% { transform: rotate(0deg); top: 50%; }
+            25% { transform: rotate(90deg); top: 50%; }
+            50% { transform: rotate(180deg); top: 50%; }
+            75% { transform: rotate(270deg); top: 50%; }
+        }
+
+        .anaphase-animation .nucleus {
+            width: 120px;
+            height: 120px;
+            background: #ff5722;
+            animation: anaphaseStretch 3s infinite;
+        }
+
+        @keyframes anaphaseStretch {
+            0%, 100% { transform: scaleX(1); }
+            50% { transform: scaleX(1.3); }
+        }
+
+        .telophase-animation {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .telophase-animation .nucleus {
+            width: 50px;
+            height: 50px;
+            background: #9c27b0;
+            animation: telophaseForm 4s infinite;
+        }
+
+        @keyframes telophaseForm {
+            0% { transform: scale(0.5); opacity: 0; }
+            50% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <div class="header-left">
-                <div class="logo">
-                    <i class="fas fa-book-open"></i>
-                </div>
-                <div class="header-text">
-                    <h1>Berpikir Tenang, Hidup Ringan</h1>
-                    <p class="subtitle">Menggabungkan Kebijaksanaan Stoikisme dan Psikologi Adler</p>
-                    <div class="author">Ditulis oleh Ambrosio Da Costa</div>
-                </div>
-            </div>
-            <div class="header-controls">
-                <button class="header-btn" id="bookmark-btn">
-                    <i class="fas fa-bookmark"></i>
+            <div class="logo">LEDI<span>SCIENCE</span></div>
+            <h1 id="main-title">Pembelahan Sel (PMAT)</h1>
+            
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="id">
+                    <i class="fas fa-flag"></i> Bahasa Indonesia
                 </button>
-                <button class="header-btn" id="search-btn">
-                    <i class="fas fa-search"></i>
+                <button class="lang-btn" data-lang="en">
+                    <i class="fas fa-flag-usa"></i> English
                 </button>
-                <button class="header-btn" id="fullscreen-btn">
-                    <i class="fas fa-expand"></i>
+                <button class="lang-btn" data-lang="pt">
+                    <i class="fas fa-flag"></i> Português
                 </button>
             </div>
         </header>
         
-        <div class="main-content">
-            <div class="sidebar">
-                <div class="book-list">
-                    <h2>Daftar Isi</h2>
-                    
-                    <div class="part-title">Bagian I – Dasar Berpikir Tenang</div>
-                    
-                    <div class="chapter-item active" data-chapter="1">
-                        <div class="chapter-icon">
-                            <i class="fas fa-puzzle-piece"></i>
-                        </div>
-                        <div class="chapter-info">
-                            <h3>Bab 1: Dunia Tidak Akan Pernah Bisa Kamu Kendalikan</h3>
-                        </div>
+        <section class="intro">
+            <p id="intro-text">Mitosis adalah proses pembelahan sel yang menghasilkan dua sel anak identik secara genetik. Proses ini terdiri dari empat tahap utama: Profase, Metafase, Anafase, dan Telofase (PMAT). Setiap tahap memiliki karakteristik khusus yang memastikan pembagian materi genetik yang akurat.</p>
+        </section>
+        
+        <div class="stages-container">
+            <!-- Profase -->
+            <div class="stage-card prophase">
+                <div class="card-header">
+                    <span class="phase-number">1</span>
+                    <span id="prophase-title">Profase</span>
+                </div>
+                <div class="card-content">
+                    <div class="stage-icon">
+                        <i class="fas fa-dna"></i>
                     </div>
-                    
-                    <div class="chapter-item" data-chapter="2">
-                        <div class="chapter-icon">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
-                        <div class="chapter-info">
-                            <h3>Bab 2: Ketenangan Adalah Pilihan, Bukan Hadiah</h3>
-                        </div>
-                    </div>
-                    
-                    <div class="part-title">Bagian II – Membebaskan Diri</div>
-                    
-                    <div class="chapter-item" data-chapter="3">
-                        <div class="chapter-icon">
-                            <i class="fas fa-user-shield"></i>
-                        </div>
-                        <div class="chapter-info">
-                            <h3>Bab 3: Berani Bertanggung Jawab Penuh</h3>
-                        </div>
-                    </div>
-                    
-                    <div class="chapter-item" data-chapter="4">
-                        <div class="chapter-icon">
-                            <i class="fas fa-users-slash"></i>
-                        </div>
-                        <div class="chapter-info">
-                            <h3>Bab 4: Hidup Tanpa Perlu Disukai Semua Orang</h3>
-                        </div>
-                    </div>
-                    
-                    <div class="chapter-item" data-chapter="5">
-                        <div class="chapter-icon">
-                            <i class="fas fa-theater-masks"></i>
-                        </div>
-                        <div class="chapter-info">
-                            <h3>Bab 5: Melepaskan Topeng, Menemukan Diri</h3>
-                        </div>
-                    </div>
-                    
-                    <div class="part-title">Bagian III – Membangun Diri yang Teguh</div>
-                    
-                    <div class="chapter-item" data-chapter="6">
-                        <div class="chapter-icon">
-                            <i class="fas fa-gem"></i>
-                        </div>
-                        <div class="chapter-info">
-                            <h3>Bab 6: Nilai-Nilai yang Tidak Bisa Diambil Dunia</h3>
-                        </div>
-                    </div>
-                    
-                    <div class="chapter-item" data-chapter="7">
-                        <div class="chapter-icon">
-                            <i class="fas fa-mountain"></i>
-                        </div>
-                        <div class="chapter-info">
-                            <h3>Bab 7: Menjadi Batu Karang di Tengah Badai</h3>
-                        </div>
-                    </div>
-                    
-                    <div class="chapter-item" data-chapter="8">
-                        <div class="chapter-icon">
-                            <i class="fas fa-feather-alt"></i>
-                        </div>
-                        <div class="chapter-info">
-                            <h3>Bab 8: Menjadi Pribadi yang Tanggung Jawab dan Bebas</h3>
-                        </div>
-                    </div>
-                    
-                    <div class="part-title">Bagian IV – Relasi Sehat dan Bahagia</div>
-                    
-                    <div class="chapter-item" data-chapter="9">
-                        <div class="chapter-icon">
-                            <i class="fas fa-people-arrows"></i>
-                        </div>
-                        <div class="chapter-info">
-                            <h3>Bab 9: Orang Lain Bukan Musuh, Tapi Teman Seperjalanan</h3>
-                        </div>
-                    </div>
-                    
-                    <div class="chapter-item" data-chapter="10">
-                        <div class="chapter-icon">
-                            <i class="fas fa-comment-slash"></i>
-                        </div>
-                        <div class="chapter-info">
-                            <h3>Bab 10: Menghadapi Kritik dan Penolakan Tanpa Luka</h3>
-                        </div>
-                    </div>
-                    
-                    <div class="chapter-item" data-chapter="11">
-                        <div class="chapter-icon">
-                            <i class="fas fa-link"></i>
-                        </div>
-                        <div class="chapter-info">
-                            <h3>Bab 11: Relasi yang Bebas dari Rantai Ekspektasi</h3>
-                        </div>
-                    </div>
-                    
-                    <div class="part-title">Bagian V – Hidup yang Tenang dan Bermakna</div>
-                    
-                    <div class="chapter-item" data-chapter="12">
-                        <div class="chapter-icon">
-                            <i class="fas fa-wind"></i>
-                        </div>
-                        <div class="chapter-info">
-                            <h3>Bab 12: Seni Menerima dan Melepaskan</h3>
-                        </div>
-                    </div>
-                    
-                    <div class="chapter-item" data-chapter="13">
-                        <div class="chapter-icon">
-                            <i class="fas fa-bullseye"></i>
-                        </div>
-                        <div class="chapter-info">
-                            <h3>Bab 13: Menemukan Tujuan yang Lebih Besar dari Diri Sendiri</h3>
-                        </div>
-                    </div>
-                    
-                    <div class="chapter-item" data-chapter="14">
-                        <div class="chapter-icon">
-                            <i class="fas fa-peace"></i>
-                        </div>
-                        <div class="chapter-info">
-                            <h3>Bab 14: Ketenangan Batin Adalah Kemenangan Tertinggi</h3>
-                        </div>
-                    </div>
-                    
-                    <div class="chapter-item" data-chapter="15">
-                        <div class="chapter-icon">
-                            <i class="fas fa-road"></i>
-                        </div>
-                        <div class="chapter-info">
-                            <h3>Penutup: Jalan Panjang Menuju Diri Sendiri</h3>
-                        </div>
-                    </div>
-                    
-                    <div class="chapter-item" data-chapter="16">
-                        <div class="chapter-icon">
-                            <i class="fas fa-book"></i>
-                        </div>
-                        <div class="chapter-info">
-                            <h3>Tentang Buku Ini</h3>
-                        </div>
+                    <h3 id="prophase-sub">Tahap Persiapan</h3>
+                    <p id="prophase-desc">Kromosom mulai memadat dan menjadi terlihat. Membran inti sel mulai menghilang. Sentriol bergerak menuju kutub yang berlawanan dan membentuk benang spindel.</p>
+                    <div class="cell-division-animation prophase-animation">
+                        <div class="nucleus"></div>
+                        <div class="chromosome" style="top: 40%; left: 45%;"></div>
+                        <div class="chromosome" style="top: 50%; left: 55%;"></div>
+                        <div class="chromosome" style="top: 60%; left: 45%;"></div>
                     </div>
                 </div>
             </div>
             
-            <div class="reader">
-                <button class="toggle-sidebar">
-                    <i class="fas fa-bars"></i>
-                </button>
-                
-                <h2 class="book-title">Berpikir Tenang, Hidup Ringan</h2>
-                <h3 class="chapter-title">Bab 1: Dunia Tidak Akan Pernah Bisa Kamu Kendalikan</h3>
-                
-                <div class="book-content-container">
-                    <div class="book-content">
-                        <p>Kita dibesarkan dalam dunia yang diam-diam mengajarkan kita satu ilusi berbahaya: bahwa jika kita cukup pintar, cukup baik, cukup rajin, dan cukup menyenangkan orang, maka dunia akan berlaku adil dan sesuai harapan kita.</p>
-                        
-                        <p>Namun hidup membuktikan sebaliknya.
-                        Kamu bisa bersikap baik, tapi tetap disalahpahami.
-                        Kamu bisa bekerja keras, tapi hasilnya tetap tidak sesuai.
-                        Kamu bisa mencintai sepenuh hati, tapi tetap ditinggalkan.</p>
-                        
-                        <p>Lalu kamu marah, kecewa, putus asa — bukan karena hidup kejam, tapi karena ekspektasimu tidak sesuai dengan kenyataan. Di sinilah kita mulai memahami pelajaran pertama dalam berpikir tenang:</p>
-                        
-                        <blockquote>
-                            Banyak hal dalam hidup ini tidak dan tidak akan pernah bisa kamu kendalikan.
-                        </blockquote>
-                        
-                        <h4>🔄 Dua Dunia: Dalam dan Luar</h4>
-                        
-                        <p>Filsafat Stoik dan Psikologi Individual Adlerian sama-sama mengajarkan pembagian yang sangat penting:</p>
-                        
-                        <div style="display: flex; justify-content: space-between; margin: 20px 0; flex-wrap: wrap;">
-                            <div style="flex: 1; min-width: 250px; padding: 15px; background: #e3f2fd; border-radius: 10px; margin: 10px;">
-                                <h4 style="text-align: center; margin-bottom: 10px; color: #1a2a6c;">Hal yang Bisa Dikendalikan</h4>
-                                <ul style="padding-left: 20px;">
-                                    <li>Pikiran kita</li>
-                                    <li>Perasaan kita</li>
-                                    <li>Pilihan kita</li>
-                                    <li>Reaksi kita</li>
-                                    <li>Nilai hidup kita</li>
-                                </ul>
-                            </div>
-                            
-                            <div style="flex: 1; min-width: 250px; padding: 15px; background: #ffebee; border-radius: 10px; margin: 10px;">
-                                <h4 style="text-align: center; margin-bottom: 10px; color: #c62828;">Hal yang Tidak Bisa Dikendalikan</h4>
-                                <ul style="padding-left: 20px;">
-                                    <li>Pikiran orang lain</li>
-                                    <li>Perasaan orang lain</li>
-                                    <li>Pilihan orang lain</li>
-                                    <li>Keadaan, cuaca, masa lalu</li>
-                                    <li>Omongan, pujian, hinaan</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <p>Filsuf Stoik Epictetus menyebut ini sebagai dikotomi kendali.
-                        Alfred Adler menyebutnya sebagai pembagian tugas: ada tugas kita, ada tugas orang lain, dan ada tugas Tuhan.
-                        Keduanya sepakat: menderita terjadi ketika kita mencampuri urusan yang bukan milik kita.</p>
-                        
-                        <h4>🪞 Contoh Kecil yang Berakar Dalam</h4>
-                        
-                        <p>Kamu menulis sesuatu di media sosial. Seseorang berkomentar buruk.</p>
-                        
-                        <p><strong>Faktor luar:</strong> Komentar dia.</p>
-                        <p><strong>Faktor dalam:</strong> Reaksi kamu — marah? tenang? menertawakan?</p>
-                        
-                        <p>Kamu ditolak saat melamar pekerjaan.</p>
-                        
-                        <p><strong>Faktor luar:</strong> Keputusan perusahaan.</p>
-                        <p><strong>Faktor dalam:</strong> Sikapmu setelahnya — menyerah? belajar? cari peluang lain?</p>
-                        
-                        <p>Latihan berpikir tenang dimulai dari membedakan dua faktor ini sebelum kita bereaksi.</p>
-                        
-                        <blockquote>
-                            Saat kamu sadar, "Ini bukan kendaliku," maka kamu akan lebih tenang — dan justru lebih kuat.
-                        </blockquote>
-                        
-                        <h4>⚖️ Mengapa Ini Sulit?</h4>
-                        
-                        <p>Karena kita manusia.
-                        Kita punya ego yang ingin diterima, ingin dianggap penting, ingin dicintai. Tapi dunia tidak selalu mengikuti keinginan itu.</p>
-                        
-                        <p>Dan di sinilah letak kebijaksanaan:</p>
-                        
-                        <blockquote>
-                            Ketenangan bukan berarti tidak merasa apa-apa, tapi tahu kapan harus merasa, dan kapan harus melepaskan.
-                        </blockquote>
-                        
-                        <h4>💡 Latihan Refleksi Hari Ini:</h4>
-                        
-                        <p>1. Tuliskan 3 hal yang kamu khawatirkan akhir-akhir ini.</p>
-                        
-                        <p>2. Dari masing-masing hal, tanyakan:</p>
-                        
-                        <p>"Apakah ini termasuk hal yang bisa aku kendalikan?"</p>
-                        
-                        <p>"Kalau tidak, apa hal kecil yang bisa aku lakukan dari dalam diriku?"</p>
-                        
-                        <h4>✨ Kutipan Penutup Bab:</h4>
-                        
-                        <blockquote>
-                            "Jika kamu ingin damai, jangan berharap dunia berubah. Ubahlah harapanmu."
-                            <br>
-                            <span style="font-style: normal; font-weight: bold;">– Marcus Aurelius</span>
-                        </blockquote>
+            <!-- Metafase -->
+            <div class="stage-card metaphase">
+                <div class="card-header">
+                    <span class="phase-number">2</span>
+                    <span id="metaphase-title">Metafase</span>
+                </div>
+                <div class="card-content">
+                    <div class="stage-icon">
+                        <i class="fas fa-align-center"></i>
                     </div>
-                    
-                    <div class="progress-bar-container">
-                        <div class="progress-bar">
-                            <div class="progress" style="width: 15%"></div>
-                        </div>
-                        <div class="progress-text">15% selesai</div>
+                    <h3 id="metaphase-sub">Tahap Penyusunan</h3>
+                    <p id="metaphase-desc">Kromosom berjajar di bidang ekuator (tengah) sel. Setiap kromosom melekat pada benang spindel di bagian sentromernya. Susunan ini memastikan pembagian yang merata.</p>
+                    <div class="cell-division-animation metaphase-animation">
+                        <div class="nucleus"></div>
+                        <div class="chromosome" style="top: 40%; left: 45%;"></div>
+                        <div class="chromosome" style="top: 50%; left: 50%;"></div>
+                        <div class="chromosome" style="top: 60%; left: 55%;"></div>
                     </div>
                 </div>
-                
-                <div class="controls">
-                    <button class="btn btn-prev" id="prev-btn">
-                        <i class="fas fa-arrow-left"></i> <span>Sebelumnya</span>
-                    </button>
-                    <div class="page-info">Bab 1 dari 16</div>
-                    <button class="btn btn-next" id="next-btn">
-                        <span>Selanjutnya</span> <i class="fas fa-arrow-right"></i>
-                    </button>
+            </div>
+            
+            <!-- Anafase -->
+            <div class="stage-card anaphase">
+                <div class="card-header">
+                    <span class="phase-number">3</span>
+                    <span id="anaphase-title">Anafase</span>
                 </div>
-                
-                <div class="settings">
-                    <button class="setting-btn" id="font-down">
-                        <i class="fas fa-font"></i>
-                        <i class="fas fa-minus" style="font-size: 0.7rem; position: absolute; margin-top: 8px;"></i>
-                        <span class="font-indicator">A-</span>
-                    </button>
-                    <button class="setting-btn" id="theme-dark">
-                        <i class="fas fa-moon"></i>
-                    </button>
-                    <button class="setting-btn" id="theme-sepia">
-                        <i class="fas fa-circle"></i>
-                    </button>
-                    <button class="setting-btn" id="theme-light">
-                        <i class="fas fa-sun"></i>
-                    </button>
-                    <button class="setting-btn" id="font-up">
-                        <i class="fas fa-font"></i>
-                        <i class="fas fa-plus" style="font-size: 0.7rem; position: absolute; margin-top: 8px;"></i>
-                        <span class="font-indicator">A+</span>
-                    </button>
-                    <button class="setting-btn" id="bookmark-chapter">
-                        <i class="fas fa-bookmark"></i>
-                    </button>
+                <div class="card-content">
+                    <div class="stage-icon">
+                        <i class="fas fa-arrows-alt-h"></i>
+                    </div>
+                    <h3 id="anaphase-sub">Tahap Pemisahan</h3>
+                    <p id="anaphase-desc">Kromatid saudara terpisah dan ditarik oleh benang spindel menuju kutub sel yang berlawanan. Pada akhir anafase, kedua kutub sel memiliki set kromosom yang identik.</p>
+                    <div class="cell-division-animation anaphase-animation">
+                        <div class="nucleus"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Telofase -->
+            <div class="stage-card telophase">
+                <div class="card-header">
+                    <span class="phase-number">4</span>
+                    <span id="telophase-title">Telofase</span>
+                </div>
+                <div class="card-content">
+                    <div class="stage-icon">
+                        <i class="fas fa-divide"></i>
+                    </div>
+                    <h3 id="telophase-sub">Tahap Penyelesaian</h3>
+                    <p id="telophase-desc">Kromosom mencapai kutub masing-masing. Membran inti baru terbentuk di sekitar kromosom. Sitokinesis (pembelahan sitoplasma) terjadi, menghasilkan dua sel anak.</p>
+                    <div class="cell-division-animation telophase-animation">
+                        <div class="nucleus"></div>
+                        <div class="nucleus"></div>
+                    </div>
                 </div>
             </div>
         </div>
         
         <footer>
-            &copy; 2023 Aplikasi Baca Buku Digital | "Berpikir Tenang, Hidup Ringan" - Ambrosio Da Costa
+            <p id="footer-text">Dibikin oleh Genjiro untuk Ledi Imut - Tahun 2025</p>
         </footer>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Toggle sidebar
-            const toggleBtn = document.querySelector('.toggle-sidebar');
-            const sidebar = document.querySelector('.sidebar');
-            
-            toggleBtn.addEventListener('click', function() {
-                sidebar.classList.toggle('hidden');
-                // Update icon based on state
-                const icon = toggleBtn.querySelector('i');
-                if (sidebar.classList.contains('hidden')) {
-                    icon.classList.remove('fa-bars');
-                    icon.classList.add('fa-book');
-                } else {
-                    icon.classList.remove('fa-book');
-                    icon.classList.add('fa-bars');
-                }
-            });
-            
-            // Chapter selection
-            const chapterItems = document.querySelectorAll('.chapter-item');
-            const chapterTitle = document.querySelector('.chapter-title');
-            const bookContent = document.querySelector('.book-content');
-            const pageInfo = document.querySelector('.page-info');
-            const progressBar = document.querySelector('.progress');
-            const progressText = document.querySelector('.progress-text');
-            
-            // Full chapter content
-            const chapters = [
-                {
-                    title: "Bab 1: Dunia Tidak Akan Pernah Bisa Kamu Kendalikan",
-                    content: `
-                        <p>Kita dibesarkan dalam dunia yang diam-diam mengajarkan kita satu ilusi berbahaya: bahwa jika kita cukup pintar, cukup baik, cukup rajin, dan cukup menyenangkan orang, maka dunia akan berlaku adil dan sesuai harapan kita.</p>
-                        
-                        <p>Namun hidup membuktikan sebaliknya.
-                        Kamu bisa bersikap baik, tapi tetap disalahpahami.
-                        Kamu bisa bekerja keras, tapi hasilnya tetap tidak sesuai.
-                        Kamu bisa mencintai sepenuh hati, tapi tetap ditinggalkan.</p>
-                        
-                        <p>Lalu kamu marah, kecewa, putus asa — bukan karena hidup kejam, tapi karena ekspektasimu tidak sesuai dengan kenyataan. Di sinilah kita mulai memahami pelajaran pertama dalam berpikir tenang:</p>
-                        
-                        <blockquote>
-                            Banyak hal dalam hidup ini tidak dan tidak akan pernah bisa kamu kendalikan.
-                        </blockquote>
-                        
-                        <h4>🔄 Dua Dunia: Dalam dan Luar</h4>
-                        
-                        <p>Filsafat Stoik dan Psikologi Individual Adlerian sama-sama mengajarkan pembagian yang sangat penting:</p>
-                        
-                        <div style="display: flex; justify-content: space-between; margin: 20px 0; flex-wrap: wrap;">
-                            <div style="flex: 1; min-width: 250px; padding: 15px; background: #e3f2fd; border-radius: 10px; margin: 10px;">
-                                <h4 style="text-align: center; margin-bottom: 10px; color: #1a2a6c;">Hal yang Bisa Dikendalikan</h4>
-                                <ul style="padding-left: 20px;">
-                                    <li>Pikiran kita</li>
-                                    <li>Perasaan kita</li>
-                                    <li>Pilihan kita</li>
-                                    <li>Reaksi kita</li>
-                                    <li>Nilai hidup kita</li>
-                                </ul>
-                            </div>
-                            
-                            <div style="flex: 1; min-width: 250px; padding: 15px; background: #ffebee; border-radius: 10px; margin: 10px;">
-                                <h4 style="text-align: center; margin-bottom: 10px; color: #c62828;">Hal yang Tidak Bisa Dikendalikan</h4>
-                                <ul style="padding-left: 20px;">
-                                    <li>Pikiran orang lain</li>
-                                    <li>Perasaan orang lain</li>
-                                    <li>Pilihan orang lain</li>
-                                    <li>Keadaan, cuaca, masa lalu</li>
-                                    <li>Omongan, pujian, hinaan</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <p>Filsuf Stoik Epictetus menyebut ini sebagai dikotomi kendali.
-                        Alfred Adler menyebutnya sebagai pembagian tugas: ada tugas kita, ada tugas orang lain, dan ada tugas Tuhan.
-                        Keduanya sepakat: menderita terjadi ketika kita mencampuri urusan yang bukan milik kita.</p>
-                        
-                        <h4>🪞 Contoh Kecil yang Berakar Dalam</h4>
-                        
-                        <p>Kamu menulis sesuatu di media sosial. Seseorang berkomentar buruk.</p>
-                        
-                        <p><strong>Faktor luar:</strong> Komentar dia.</p>
-                        <p><strong>Faktor dalam:</strong> Reaksi kamu — marah? tenang? menertawakan?</p>
-                        
-                        <p>Kamu ditolak saat melamar pekerjaan.</p>
-                        
-                        <p><strong>Faktor luar:</strong> Keputusan perusahaan.</p>
-                        <p><strong>Faktor dalam:</strong> Sikapmu setelahnya — menyerah? belajar? cari peluang lain?</p>
-                        
-                        <p>Latihan berpikir tenang dimulai dari membedakan dua faktor ini sebelum kita bereaksi.</p>
-                        
-                        <blockquote>
-                            Saat kamu sadar, "Ini bukan kendaliku," maka kamu akan lebih tenang — dan justru lebih kuat.
-                        </blockquote>
-                        
-                        <h4>⚖️ Mengapa Ini Sulit?</h4>
-                        
-                        <p>Karena kita manusia.
-                        Kita punya ego yang ingin diterima, ingin dianggap penting, ingin dicintai. Tapi dunia tidak selalu mengikuti keinginan itu.</p>
-                        
-                        <p>Dan di sinilah letak kebijaksanaan:</p>
-                        
-                        <blockquote>
-                            Ketenangan bukan berarti tidak merasa apa-apa, tapi tahu kapan harus merasa, dan kapan harus melepaskan.
-                        </blockquote>
-                        
-                        <h4>💡 Latihan Refleksi Hari Ini:</h4>
-                        
-                        <p>1. Tuliskan 3 hal yang kamu khawatirkan akhir-akhir ini.</p>
-                        
-                        <p>2. Dari masing-masing hal, tanyakan:</p>
-                        
-                        <p>"Apakah ini termasuk hal yang bisa aku kendalikan?"</p>
-                        
-                        <p>"Kalau tidak, apa hal kecil yang bisa aku lakukan dari dalam diriku?"</p>
-                        
-                        <h4>✨ Kutipan Penutup Bab:</h4>
-                        
-                        <blockquote>
-                            "Jika kamu ingin damai, jangan berharap dunia berubah. Ubahlah harapanmu."
-                            <br>
-                            <span style="font-style: normal; font-weight: bold;">– Marcus Aurelius</span>
-                        </blockquote>
-                    `
-                },
-                {
-                    title: "Bab 2: Ketenangan Adalah Pilihan, Bukan Hadiah",
-                    content: `
-                        <p>Banyak orang mengira ketenangan datang ketika hidup akhirnya beres: tidak ada masalah, tidak ada drama, tidak ada orang toksik. Mereka berkata, "Aku bakal tenang kalau gajiku cukup, kalau orang tuaku ngerti aku, kalau dia minta maaf."</p>
-                        
-                        <p>Padahal, kalau kita terus menunggu kondisi luar berubah, kita akan terus menjadi korban keadaan.</p>
-                        
-                        <blockquote>
-                            Ketenangan bukan datang dari luar. Ketenangan datang ketika kamu berhenti bereaksi secara otomatis.
-                        </blockquote>
-                        
-                        <h4>🔁 Reaksi vs. Respon</h4>
-                        
-                        <p><strong>Reaksi:</strong> spontan, tanpa sadar, sering dikendalikan emosi.</p>
-                        <p><strong>Respon:</strong> sadar, terlatih, berasal dari nilai dan pemahaman.</p>
-                        
-                        <p>Bayangkan seseorang menghina kamu. Reaksi otomatismu mungkin marah, ingin membalas. Tapi jika kamu diam sejenak, menarik napas, dan mengingat prinsipmu, kamu bisa memilih untuk tidak membalas.
-                        Itulah kebebasan sejati: bukan kebebasan untuk melakukan apapun, tapi kebebasan untuk memilih cara kita bertindak.</p>
-                        
-                        <h4>🧠 Stoikisme dan Psikologi Adler</h4>
-                        
-                        <p>Stoikisme mengajarkan: "Bukan kejadian yang menyakitkan kita, tapi cara kita menafsirkannya."</p>
-                        
-                        <p>Adlerian berkata: "Semua gangguan mental muncul dari kepercayaan keliru bahwa kita tidak punya pilihan."</p>
-                        
-                        <p>Jadi, selama kamu masih merasa harus marah, harus baper, harus putus asa — kamu sedang lupa bahwa kamu punya pilihan.</p>
-                        
-                        <h4>🛠️ Latihan Hari Ini:</h4>
-                        
-                        <p>1. Ketika kamu terganggu, tunda respon selama 10 detik. Ambil napas.</p>
-                        
-                        <p>2. Tanyakan:</p>
-                        
-                        <p>"Apa pilihan bijak yang sesuai dengan nilai hidupku?"</p>
-                        
-                        <p>"Apa dampaknya kalau aku bereaksi otomatis sekarang?"</p>
-                        
-                        <p>Ketenangan tidak muncul tiba-tiba. Ia muncul setiap kali kamu memilih respon yang tenang — dan itu adalah latihan seumur hidup.</p>
-                        
-                        <h4>✨ Kutipan Penutup Bab:</h4>
-                        
-                        <blockquote>
-                            "Orang yang kuat bukan yang tidak pernah marah, tapi yang bisa memilih kapan marah dan kapan diam."
-                            <br>
-                            <span style="font-style: normal; font-weight: bold;">– Seneca</span>
-                        </blockquote>
-                    `
-                },
-                {
-                    title: "Bab 3: Berani Bertanggung Jawab Penuh",
-                    content: `
-                        <p>Apa kamu pernah menyalahkan masa lalu atas siapa kamu hari ini?</p>
-                        
-                        <p>"Aku begini karena didikan orang tuaku."</p>
-                        <p>"Aku trauma karena masa kecilku tidak bahagia."</p>
-                        <p>"Aku takut gagal karena dulu pernah diremehkan."</p>
-                        
-                        <p>Ya, semua itu mungkin benar. Tapi kalau kita terus memegang narasi itu, kita akan selamanya menjadi produk masa lalu, bukan pencipta masa depan.</p>
-                        
-                        <h4>🔗 Menolak Peran Korban</h4>
-                        
-                        <p>Alfred Adler mengatakan:</p>
-                        
-                        <blockquote>
-                            "Masalah psikologis bukan datang dari pengalaman, tapi dari makna yang kita berikan pada pengalaman itu."
-                        </blockquote>
-                        
-                        <p>Artinya:
-                        Kamu bisa saja dibesarkan dalam keluarga yang keras, tapi tetap memilih untuk bersikap lembut.
-                        Kamu bisa saja dulu gagal, tapi tetap memilih untuk mencoba lagi.</p>
-                        
-                        <p>Berani bertanggung jawab penuh bukan berarti menyalahkan diri sendiri, tapi mengakui bahwa:</p>
-                        
-                        <blockquote>
-                            "Mulai hari ini, aku bertanggung jawab atas arah hidupku, apapun yang terjadi di masa lalu."
-                        </blockquote>
-                        
-                        <h4>🔄 Stoikisme dan Tanggung Jawab</h4>
-                        
-                        <p>Stoikisme tidak mengajari kita pasrah. Ia justru menantang kita:</p>
-                        
-                        <blockquote>
-                            "Kalau kamu tidak bisa mengubah hal di luar, maka ubahlah dirimu."
-                        </blockquote>
-                        
-                        <p>Kamu tidak bisa memilih siapa orang tuamu. Tapi kamu bisa memilih bagaimana kamu memperlakukan orang lain sekarang.
-                        Kamu tidak bisa menghapus masa lalu. Tapi kamu bisa memilih makna baru atas pengalaman itu.</p>
-                        
-                        <h4>🛠️ Latihan Hari Ini:</h4>
-                        
-                        <p>1. Tulis satu kejadian masa lalu yang membuatmu terluka.</p>
-                        
-                        <p>2. Tanyakan:</p>
-                        
-                        <p>"Apakah aku masih membawa luka ini sebagai alasan?"</p>
-                        
-                        <p>"Bagaimana aku bisa memberi makna baru dari sudut tanggung jawab?"</p>
-                        
-                        <p>Contoh:</p>
-                        
-                        <p>Dulu kamu dihina karena bodoh → sekarang kamu belajar lebih giat, bukan untuk balas dendam, tapi karena kamu layak berkembang.</p>
-                        
-                        <h4>✨ Kutipan Penutup Bab:</h4>
-                        
-                        <blockquote>
-                            "Kamu bukan apa yang telah terjadi padamu. Kamu adalah apa yang kamu pilih untuk jadi hari ini."
-                            <br>
-                            <span style="font-style: normal; font-weight: bold;">– Carl Jung</span>
-                        </blockquote>
-                    `
-                },
-                {
-                    title: "Bab 4: Hidup Tanpa Perlu Disukai Semua Orang",
-                    content: `
-                        <p>Sejak kecil kita diajari untuk menjadi anak yang disukai: disukai orang tua, disukai guru, disukai teman. Tanpa sadar, kita tumbuh dengan keyakinan bahwa hidup yang baik adalah hidup yang disukai semua orang.</p>
-                        
-                        <p>Tapi Adler menantang keyakinan ini:</p>
-                        
-                        <blockquote>
-                            "Kebebasan sejati adalah ketika kamu berhenti mencari persetujuan orang lain."
-                        </blockquote>
-                        
-                        <p>Bayangkan energi yang terbuang hanya untuk membuat semua orang menyukaimu. Padahal, semakin kamu mencoba disukai semua orang, semakin kamu kehilangan dirimu sendiri.</p>
-                        
-                        <h4>⚖️ Dilema Disukai vs. Dipercaya</h4>
-                        
-                        <p>Stoikisme mengajarkan:</p>
-                        
-                        <blockquote>
-                            "Lebih baik dihormati karena integritasmu daripada disukai karena kepalsuanmu."
-                        </blockquote>
-                        
-                        <p>Fokus pada menjadi orang yang bisa dipercaya, bukan orang yang selalu disukai. Kepercayaan datang dari konsistensi dan integritas, bukan dari menyenangkan semua orang.</p>
-                        
-                        <h4>🛠️ Latihan Hari Ini:</h4>
-                        
-                        <p>1. Tulis satu situasi di mana kamu mengorbankan pendapatmu demi disukai.</p>
-                        
-                        <p>2. Tanyakan: "Apa yang akan aku lakukan jika aku tidak takut ditolak?"</p>
-                        
-                        <h4>✨ Kutipan Penutup Bab:</h4>
-                        
-                        <blockquote>
-                            "Tidak semua orang harus menyukaimu, dan itu tidak masalah."
-                            <br>
-                            <span style="font-style: normal; font-weight: bold;">– Epictetus</span>
-                        </blockquote>
-                    `
-                },
-                {
-                    title: "Bab 5: Melepaskan Topeng, Menemukan Diri",
-                    content: `
-                        <p>Setiap hari kita memakai berbagai topeng: topeng karyawan yang sempurna, topeng anak yang baik, topeng teman yang selalu tersedia. Tanpa sadar, kita lupa siapa diri kita di balik semua topeng itu.</p>
-                        
-                        <p>Adler mengingatkan:</p>
-                        
-                        <blockquote>
-                            "Kamu tidak perlu menjadi siapa-siapa untuk diterima. Kamu sudah cukup sebagai dirimu sendiri."
-                        </blockquote>
-                        
-                        <h4>🔍 Mengapa Kita Memakai Topeng?</h4>
-                        
-                        <p>Karena takut:</p>
-                        <ul>
-                            <li>Takut tidak diterima</li>
-                            <li>Takut dihakimi</li>
-                            <li>Takut kehilangan cinta</li>
-                        </ul>
-                        
-                        <p>Tapi hidup dengan topeng justru membuat kita semakin terasing dari diri sendiri dan orang lain.</p>
-                        
-                        <h4>🕊️ Keberanian untuk Jujur</h4>
-                        
-                        <p>Stoikisme mengajarkan kejujuran pada diri sendiri:</p>
-                        
-                        <blockquote>
-                            "Kenali dirimu, terima dirimu, lalu hidup sesuai dengan nilai-nilaimu."
-                        </blockquote>
-                        
-                        <p>Melepaskan topeng bukan berarti menjadi egois, tapi menjadi otentik.</p>
-                        
-                        <h4>🛠️ Latihan Hari Ini:</h4>
-                        
-                        <p>1. Tulis tiga hal yang kamu sembunyikan dari orang lain.</p>
-                        
-                        <p>2. Tanyakan: "Apa yang terjadi jika aku jujur tentang hal ini?"</p>
-                        
-                        <h4>✨ Kutipan Penutup Bab:</h4>
-                        
-                        <blockquote>
-                            "Keaslian adalah keberanian untuk menjadi tidak sempurna."
-                            <br>
-                            <span style="font-style: normal; font-weight: bold;">– Brené Brown</span>
-                        </blockquote>
-                    `
-                }
-            ];
-            
-            let currentChapter = 0;
-            
-            chapterItems.forEach((item, index) => {
-                item.addEventListener('click', function() {
-                    // Remove active class from all items
-                    chapterItems.forEach(i => i.classList.remove('active'));
-                    // Add active class to clicked item
-                    this.classList.add('active');
-                    
-                    // Update chapter content
-                    currentChapter = index;
-                    updateChapter();
-                    
-                    // Auto-close sidebar on mobile
-                    if (window.innerWidth < 992) {
-                        sidebar.classList.add('hidden');
-                        toggleBtn.querySelector('i').classList.remove('fa-bars');
-                        toggleBtn.querySelector('i').classList.add('fa-book');
-                    }
-                });
-            });
-            
-            function updateChapter() {
-                if (currentChapter < chapters.length) {
-                    chapterTitle.textContent = chapters[currentChapter].title;
-                    bookContent.innerHTML = chapters[currentChapter].content;
-                    pageInfo.textContent = `Bab ${currentChapter + 1} dari ${chapterItems.length}`;
-                    
-                    // Update progress
-                    const progressPercentage = Math.round(((currentChapter + 1) / chapterItems.length) * 100);
-                    progressBar.style.width = `${progressPercentage}%`;
-                    progressText.textContent = `${progressPercentage}% selesai`;
-                    
-                    // Update button states
-                    prevBtn.disabled = currentChapter === 0;
-                    nextBtn.disabled = currentChapter === chapterItems.length - 1;
-                }
+        // Data teks dalam berbagai bahasa
+        const translations = {
+            id: {
+                title: "Pembelahan Sel (PMAT)",
+                introText: "Mitosis adalah proses pembelahan sel yang menghasilkan dua sel anak identik secara genetik. Proses ini terdiri dari empat tahap utama: Profase, Metafase, Anafase, dan Telofase (PMAT). Setiap tahap memiliki karakteristik khusus yang memastikan pembagian materi genetik yang akurat.",
+                prophaseTitle: "Profase",
+                prophaseSub: "Tahap Persiapan",
+                prophaseDesc: "Kromosom mulai memadat dan menjadi terlihat. Membran inti sel mulai menghilang. Sentriol bergerak menuju kutub yang berlawanan dan membentuk benang spindel.",
+                metaphaseTitle: "Metafase",
+                metaphaseSub: "Tahap Penyusunan",
+                metaphaseDesc: "Kromosom berjajar di bidang ekuator (tengah) sel. Setiap kromosom melekat pada benang spindel di bagian sentromernya. Susunan ini memastikan pembagian yang merata.",
+                anaphaseTitle: "Anafase",
+                anaphaseSub: "Tahap Pemisahan",
+                anaphaseDesc: "Kromatid saudara terpisah dan ditarik oleh benang spindel menuju kutub sel yang berlawanan. Pada akhir anafase, kedua kutub sel memiliki set kromosom yang identik.",
+                telophaseTitle: "Telofase",
+                telophaseSub: "Tahap Penyelesaian",
+                telophaseDesc: "Kromosom mencapai kutub masing-masing. Membran inti baru terbentuk di sekitar kromosom. Sitokinesis (pembelahan sitoplasma) terjadi, menghasilkan dua sel anak.",
+                footerText: "Dibikin oleh Genjiro untuk Ledi Imut - Tahun 2025"
+            },
+            en: {
+                title: "Cell Division (PMAT)",
+                introText: "Mitosis is the process of cell division that produces two genetically identical daughter cells. This process consists of four main stages: Prophase, Metaphase, Anaphase, and Telophase (PMAT). Each stage has specific characteristics that ensure accurate distribution of genetic material.",
+                prophaseTitle: "Prophase",
+                prophaseSub: "Preparation Stage",
+                prophaseDesc: "Chromosomes condense and become visible. The nuclear envelope breaks down. Centrioles move to opposite poles and form spindle fibers.",
+                metaphaseTitle: "Metaphase",
+                metaphaseSub: "Alignment Stage",
+                metaphaseDesc: "Chromosomes align at the equatorial plate (center) of the cell. Each chromosome attaches to spindle fibers at its centromere. This arrangement ensures equal division.",
+                anaphaseTitle: "Anaphase",
+                anaphaseSub: "Separation Stage",
+                anaphaseDesc: "Sister chromatids separate and are pulled by spindle fibers toward opposite poles of the cell. By the end of anaphase, each pole has an identical set of chromosomes.",
+                telophaseTitle: "Telophase",
+                telophaseSub: "Completion Stage",
+                telophaseDesc: "Chromosomes reach opposite poles. New nuclear envelopes form around the chromosomes. Cytokinesis (cytoplasm division) occurs, resulting in two daughter cells.",
+                footerText: "Created by Genjiro for Cute Ledi - Year 2025"
+            },
+            pt: {
+                title: "Divisão Celular (PMAT)",
+                introText: "A mitose é o processo de divisão celular que produz duas células-filhas geneticamente idênticas. Este processo consiste em quatro estágios principais: Prófase, Metáfase, Anáfase e Telófase (PMAT). Cada estágio tem características específicas que garantem a distribuição precisa do material genético.",
+                prophaseTitle: "Prófase",
+                prophaseSub: "Estágio de Preparação",
+                prophaseDesc: "Os cromossomos condensam e tornam-se visíveis. O envelope nuclear se desfaz. Os centríolos movem-se para polos opostos e formam fibras do fuso.",
+                metaphaseTitle: "Metáfase",
+                metaphaseSub: "Estágio de Alinhamento",
+                metaphaseDesc: "Os cromossomos alinham-se na placa equatorial (centro) da célula. Cada cromossomo liga-se às fibras do fuso pelo centrômero. Esse arranjo garante uma divisão igual.",
+                anaphaseTitle: "Anáfase",
+                anaphaseSub: "Estágio de Separação",
+                anaphaseDesc: "As cromátides-irmãs separam-se e são puxadas pelas fibras do fuso em direção a polos opostos da célula. Ao final da anáfase, cada polo tem um conjunto idêntico de cromossomos.",
+                telophaseTitle: "Telófase",
+                telophaseSub: "Estágio de Conclusão",
+                telophaseDesc: "Os cromossomos atingem os polos opostos. Novos envelopes nucleares formam-se ao redor dos cromossomos. Ocorre a citocinese (divisão do citoplasma), resultando em duas células-filhas.",
+                footerText: "Feito por Genjiro para Ledi Fofa - Ano 2025"
             }
+        };
+
+        // Fungsi untuk mengganti bahasa
+        function changeLanguage(lang) {
+            // Update semua teks berdasarkan bahasa yang dipilih
+            document.getElementById('main-title').textContent = translations[lang].title;
+            document.getElementById('intro-text').textContent = translations[lang].introText;
+            document.getElementById('prophase-title').textContent = translations[lang].prophaseTitle;
+            document.getElementById('prophase-sub').textContent = translations[lang].prophaseSub;
+            document.getElementById('prophase-desc').textContent = translations[lang].prophaseDesc;
+            document.getElementById('metaphase-title').textContent = translations[lang].metaphaseTitle;
+            document.getElementById('metaphase-sub').textContent = translations[lang].metaphaseSub;
+            document.getElementById('metaphase-desc').textContent = translations[lang].metaphaseDesc;
+            document.getElementById('anaphase-title').textContent = translations[lang].anaphaseTitle;
+            document.getElementById('anaphase-sub').textContent = translations[lang].anaphaseSub;
+            document.getElementById('anaphase-desc').textContent = translations[lang].anaphaseDesc;
+            document.getElementById('telophase-title').textContent = translations[lang].telophaseTitle;
+            document.getElementById('telophase-sub').textContent = translations[lang].telophaseSub;
+            document.getElementById('telophase-desc').textContent = translations[lang].telophaseDesc;
+            document.getElementById('footer-text').textContent = translations[lang].footerText;
             
-            // Navigation buttons
-            const prevBtn = document.getElementById('prev-btn');
-            const nextBtn = document.getElementById('next-btn');
-            
-            prevBtn.addEventListener('click', function() {
-                if (currentChapter > 0) {
-                    currentChapter--;
-                    updateChapter();
-                    // Update active chapter in sidebar
-                    chapterItems.forEach(i => i.classList.remove('active'));
-                    chapterItems[currentChapter].classList.add('active');
-                    
-                    // Scroll to top of content
-                    bookContent.scrollTop = 0;
+            // Update status aktif tombol bahasa
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.lang === lang) {
+                    btn.classList.add('active');
                 }
             });
-            
-            nextBtn.addEventListener('click', function() {
-                if (currentChapter < chapterItems.length - 1) {
-                    currentChapter++;
-                    updateChapter();
-                    // Update active chapter in sidebar
-                    chapterItems.forEach(i => i.classList.remove('active'));
-                    chapterItems[currentChapter].classList.add('active');
-                    
-                    // Scroll to top of content
-                    bookContent.scrollTop = 0;
-                }
+        }
+
+        // Event listener untuk tombol bahasa
+        document.querySelectorAll('.lang-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const lang = button.dataset.lang;
+                changeLanguage(lang);
             });
-            
-            // Theme settings
-            const themeDark = document.getElementById('theme-dark');
-            const themeSepia = document.getElementById('theme-sepia');
-            const themeLight = document.getElementById('theme-light');
-            const reader = document.querySelector('.reader');
-            
-            themeDark.addEventListener('click', function() {
-                reader.classList.add('theme-dark');
-                reader.classList.remove('theme-sepia');
-            });
-            
-            themeSepia.addEventListener('click', function() {
-                reader.classList.add('theme-sepia');
-                reader.classList.remove('theme-dark');
-            });
-            
-            themeLight.addEventListener('click', function() {
-                reader.classList.remove('theme-dark');
-                reader.classList.remove('theme-sepia');
-            });
-            
-            // Font size adjustment
-            const fontDown = document.getElementById('font-down');
-            const fontUp = document.getElementById('font-up');
-            let fontSize = 16;
-            
-            fontDown.addEventListener('click', function() {
-                if (fontSize > 14) {
-                    fontSize -= 2;
-                    bookContent.style.fontSize = fontSize + 'px';
-                }
-            });
-            
-            fontUp.addEventListener('click', function() {
-                if (fontSize < 24) {
-                    fontSize += 2;
-                    bookContent.style.fontSize = fontSize + 'px';
-                }
-            });
-            
-            // Bookmark functionality
-            const bookmarkBtn = document.getElementById('bookmark-btn');
-            const bookmarkChapter = document.getElementById('bookmark-chapter');
-            let isBookmarked = false;
-            
-            bookmarkBtn.addEventListener('click', function() {
-                isBookmarked = !isBookmarked;
-                const icon = this.querySelector('i');
-                if (isBookmarked) {
-                    icon.classList.remove('fa-bookmark');
-                    icon.classList.add('fa-bookmark', 'fas', 'fa-bookmark');
-                    this.style.color = '#ffd700';
-                    alert(`Bab ${currentChapter + 1} ditandai!`);
-                } else {
-                    icon.classList.remove('fa-bookmark');
-                    icon.classList.add('fa-bookmark', 'far', 'fa-bookmark');
-                    this.style.color = 'white';
-                }
-            });
-            
-            bookmarkChapter.addEventListener('click', function() {
-                isBookmarked = !isBookmarked;
-                if (isBookmarked) {
-                    this.style.color = '#ff6b6b';
-                    alert(`Bab ${currentChapter + 1} ditandai!`);
-                } else {
-                    this.style.color = '#2c3e50';
-                }
-            });
-            
-            // Fullscreen functionality
-            const fullscreenBtn = document.getElementById('fullscreen-btn');
-            
-            fullscreenBtn.addEventListener('click', function() {
-                if (!document.fullscreenElement) {
-                    document.documentElement.requestFullscreen();
-                    this.innerHTML = '<i class="fas fa-compress"></i>';
-                } else {
-                    if (document.exitFullscreen) {
-                        document.exitFullscreen();
-                        this.innerHTML = '<i class="fas fa-expand"></i>';
-                    }
-                }
-            });
-            
-            // Initialize page
-            updateChapter();
-            
-            // Auto-detect mobile and close sidebar
-            if (window.innerWidth < 992) {
-                sidebar.classList.add('hidden');
-                toggleBtn.querySelector('i').classList.add('fa-book');
-                toggleBtn.querySelector('i').classList.remove('fa-bars');
-            }
         });
+
+        // Inisialisasi dengan bahasa Indonesia
+        changeLanguage('id');
     </script>
 </body>
 </html>

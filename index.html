@@ -1,526 +1,94 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ledi - Pembelahan Sel (PMAT)</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+  <meta charset="utf-8" />
+  <title>SERTIFIKAT - Script HTML buat Kamu</title>
+  <meta name="description" content="@feelthisray - Script HTML by Feeldream Repl Co">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
 
-        :root {
-            --primary: #1a237e;
-            --secondary: #4a148c;
-            --accent: #e91e63;
-            --light: #f5f5f5;
-            --dark: #121212;
-            --prophase: #3f51b5;
-            --metaphase: #009688;
-            --anaphase: #ff5722;
-            --telophase: #9c27b0;
-        }
+  <link rel="icon" type="image/svg+xml" href="https://feeldreams.github.io/main-icon.png"> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://htmlku.com/hanyabuatmu/style.css">
+  <script src="https://unpkg.com/typeit@8.7.0/dist/index.umd.js"></script>
 
-        body {
-            background: linear-gradient(135deg, #1a237e, #4a148c);
-            color: var(--light);
-            line-height: 1.6;
-            min-height: 100vh;
-            padding: 20px;
-            background-attachment: fixed;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        header {
-            text-align: center;
-            padding: 30px 20px 20px;
-            position: relative;
-            margin-bottom: 20px;
-        }
-
-        .logo {
-            font-size: 2.8rem;
-            font-weight: bold;
-            color: #fff;
-            margin-bottom: 10px;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-            letter-spacing: 2px;
-        }
-
-        .logo span {
-            color: #ffeb3b;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            color: #ffeb3b;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .language-switcher {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            margin: 20px 0 30px;
-            flex-wrap: wrap;
-        }
-
-        .lang-btn {
-            background: rgba(255, 255, 255, 0.15);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 30px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            min-width: 120px;
-        }
-
-        .lang-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-3px);
-        }
-
-        .lang-btn.active {
-            background: #fff;
-            color: var(--primary);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .intro {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 25px;
-            margin: 20px auto;
-            max-width: 900px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-        }
-
-        .intro p {
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-            line-height: 1.7;
-            text-align: center;
-        }
-
-        .stages-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin: 40px 0;
-        }
-
-        .stage-card {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-            transition: transform 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        .stage-card:hover {
-            transform: translateY(-10px) scale(1.02);
-        }
-
-        .card-header {
-            padding: 25px 20px;
-            text-align: center;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: white;
-        }
-
-        .prophase .card-header { background: var(--prophase); }
-        .metaphase .card-header { background: var(--metaphase); }
-        .anaphase .card-header { background: var(--anaphase); }
-        .telophase .card-header { background: var(--telophase); }
-
-        .card-content {
-            padding: 25px;
-            color: var(--dark);
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .stage-icon {
-            font-size: 3rem;
-            text-align: center;
-            margin-bottom: 20px;
-            color: var(--primary);
-        }
-
-        .prophase .stage-icon { color: var(--prophase); }
-        .metaphase .stage-icon { color: var(--metaphase); }
-        .anaphase .stage-icon { color: var(--anaphase); }
-        .telophase .stage-icon { color: var(--telophase); }
-
-        .card-content h3 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            color: var(--primary);
-            text-align: center;
-        }
-
-        .card-content p {
-            margin-bottom: 15px;
-            font-size: 1rem;
-            line-height: 1.6;
-            text-align: center;
-            flex-grow: 1;
-        }
-
-        .phase-number {
-            display: inline-block;
-            width: 30px;
-            height: 30px;
-            background: var(--primary);
-            color: white;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 30px;
-            margin-right: 10px;
-            font-weight: bold;
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px;
-            margin-top: 40px;
-            font-size: 1.1rem;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 15px;
-            font-style: italic;
-        }
-
-        @media (max-width: 768px) {
-            .logo {
-                font-size: 2.2rem;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .stages-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .lang-btn {
-                padding: 8px 15px;
-                min-width: 100px;
-                font-size: 0.9rem;
-            }
-        }
-
-        .cell-division-animation {
-            width: 100%;
-            height: 150px;
-            background: linear-gradient(to bottom, #f5f5f5, #e0e0e0);
-            border-radius: 10px;
-            margin-top: 20px;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .nucleus {
-            position: absolute;
-            border-radius: 50%;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .chromosome {
-            position: absolute;
-            background: #e91e63;
-            border-radius: 3px;
-        }
-
-        /* Animations for each phase */
-        .prophase-animation .nucleus {
-            width: 80px;
-            height: 80px;
-            background: #3f51b5;
-            animation: prophasePulse 3s infinite;
-        }
-
-        @keyframes prophasePulse {
-            0% { transform: scale(1); opacity: 0.9; }
-            50% { transform: scale(1.05); opacity: 1; }
-            100% { transform: scale(1); opacity: 0.9; }
-        }
-
-        .metaphase-animation .nucleus {
-            width: 100px;
-            height: 100px;
-            background: #009688;
-        }
-
-        .metaphase-animation .chromosome {
-            width: 6px;
-            height: 25px;
-            animation: metaphaseAlign 4s infinite;
-        }
-
-        @keyframes metaphaseAlign {
-            0%, 100% { transform: rotate(0deg); top: 50%; }
-            25% { transform: rotate(90deg); top: 50%; }
-            50% { transform: rotate(180deg); top: 50%; }
-            75% { transform: rotate(270deg); top: 50%; }
-        }
-
-        .anaphase-animation .nucleus {
-            width: 120px;
-            height: 120px;
-            background: #ff5722;
-            animation: anaphaseStretch 3s infinite;
-        }
-
-        @keyframes anaphaseStretch {
-            0%, 100% { transform: scaleX(1); }
-            50% { transform: scaleX(1.3); }
-        }
-
-        .telophase-animation {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-        }
-
-        .telophase-animation .nucleus {
-            width: 50px;
-            height: 50px;
-            background: #9c27b0;
-            animation: telophaseForm 4s infinite;
-        }
-
-        @keyframes telophaseForm {
-            0% { transform: scale(0.5); opacity: 0; }
-            50% { transform: scale(1); opacity: 1; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-    </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="logo">LEDI<span>SCIENCE</span></div>
-            <h1 id="main-title">Pembelahan Sel (PMAT)</h1>
-            
-            <div class="language-switcher">
-                <button class="lang-btn active" data-lang="id">
-                    <i class="fas fa-flag"></i> Bahasa Indonesia
-                </button>
-                <button class="lang-btn" data-lang="en">
-                    <i class="fas fa-flag-usa"></i> English
-                </button>
-                <button class="lang-btn" data-lang="pt">
-                    <i class="fas fa-flag"></i> Português
-                </button>
+  <audio src="https://feeldreams.github.io/audio/foreveryoung.mp3" id="linkmp3" class="hidden"></audio>
+	<div class="overlay">
+    <div class="loading-message">Ledi cute!<br>wait yaa..</div>
+     <div id="loveIn" class="blocklove">
+        <a href="#" target="_blank" class="lovein"></a>
+        <p id="ket">buti iha logo korasaun!</p>
+     </div>
+   </div>
+   
+   <div id="bodyblur">
+     <img src="https://feeldreams.github.io/wp9.jpg" id="wallpaper"/>
+     <div id="thisblur"></div>
+   </div>
+   
+    <!-- Swiper -->
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+                <div id="stiker1" class="scale0 stiker">
+                    <img src="https://feeldreams.github.io/peach22.gif" />
+                </div>
+                <h1 id="teks1" class="scale0 quicksand" style="font-size: 22px;">Hi abin ledi<br><br> >>>>
+                </h1>
             </div>
-        </header>
-        
-        <section class="intro">
-            <p id="intro-text">Mitosis adalah proses pembelahan sel yang menghasilkan dua sel anak identik secara genetik. Proses ini terdiri dari empat tahap utama: Profase, Metafase, Anafase, dan Telofase (PMAT). Setiap tahap memiliki karakteristik khusus yang memastikan pembagian materi genetik yang akurat.</p>
-        </section>
-        
-        <div class="stages-container">
-            <!-- Profase -->
-            <div class="stage-card prophase">
-                <div class="card-header">
-                    <span class="phase-number">1</span>
-                    <span id="prophase-title">Profase</span>
+
+            <div class="swiper-slide">
+                <div id="stiker2" class="scale0 stiker">
+                    <img src="https://feeldreams.github.io/peachspeech.gif" />
                 </div>
-                <div class="card-content">
-                    <div class="stage-icon">
-                        <i class="fas fa-dna"></i>
-                    </div>
-                    <h3 id="prophase-sub">Tahap Persiapan</h3>
-                    <p id="prophase-desc">Kromosom mulai memadat dan menjadi terlihat. Membran inti sel mulai menghilang. Sentriol bergerak menuju kutub yang berlawanan dan membentuk benang spindel.</p>
-                    <div class="cell-division-animation prophase-animation">
-                        <div class="nucleus"></div>
-                        <div class="chromosome" style="top: 40%; left: 45%;"></div>
-                        <div class="chromosome" style="top: 50%; left: 55%;"></div>
-                        <div class="chromosome" style="top: 60%; left: 45%;"></div>
-                    </div>
-                </div>
+                <h1 id="teks2" class="scale0 quicksand" style="font-size: 18px;">Hau iha buat ida ba <br>Ba abin ledi<br><br> >>>></h1>
             </div>
-            
-            <!-- Metafase -->
-            <div class="stage-card metaphase">
-                <div class="card-header">
-                    <span class="phase-number">2</span>
-                    <span id="metaphase-title">Metafase</span>
-                </div>
-                <div class="card-content">
-                    <div class="stage-icon">
-                        <i class="fas fa-align-center"></i>
-                    </div>
-                    <h3 id="metaphase-sub">Tahap Penyusunan</h3>
-                    <p id="metaphase-desc">Kromosom berjajar di bidang ekuator (tengah) sel. Setiap kromosom melekat pada benang spindel di bagian sentromernya. Susunan ini memastikan pembagian yang merata.</p>
-                    <div class="cell-division-animation metaphase-animation">
-                        <div class="nucleus"></div>
-                        <div class="chromosome" style="top: 40%; left: 45%;"></div>
-                        <div class="chromosome" style="top: 50%; left: 50%;"></div>
-                        <div class="chromosome" style="top: 60%; left: 55%;"></div>
-                    </div>
-                </div>
+
+            <div class="swiper-slide">
+                <div id="stiker3" class="scale0 sertifikat">
+				    <img src="https://htmlku.com/hanyabuatmu/sertifikat.png" alt="Sertifikat">
+				    
+				    <div id="teks3" class="scale0 text-overlay">
+					    <div class="real">Rill, <span style="color:red">no fake</span></div>
+				        <h1 class="main-title">🌟 CERTIFICATE 🌟</h1>
+				        <div class="sub-title">You’ve got this quiet way of making
+things feel more comfortable,
+even when nothing big is happening.
+</div>
+				        <div class="content">Give to</div>
+				        <h1 style="font-size:25px;margin:5px;text-decoration: underline;text-decoration-color:pink">YOU</h1>
+				        <div class="content">I don’t always say it,
+but your presence makes things better.
+Keep going<br>you’re doing great..</div>
+				    </div>
+				</div>
             </div>
             
-            <!-- Anafase -->
-            <div class="stage-card anaphase">
-                <div class="card-header">
-                    <span class="phase-number">3</span>
-                    <span id="anaphase-title">Anafase</span>
+            <div class="swiper-slide">
+                <div id="stiker4" class="scale0 stiker" style="margin-top:50px">
+                    <img id="stikerAkhir1" src="https://feeldreams.github.io/peachheart.gif" />
+                    <img id="stikerAkhir2" class="hidden" src="https://feeldreams.github.io/peach6.gif" />
+                    <img id="stikerAkhir3" class="hidden" src="https://feeldreams.github.io/peach1.gif" />
                 </div>
-                <div class="card-content">
-                    <div class="stage-icon">
-                        <i class="fas fa-arrows-alt-h"></i>
-                    </div>
-                    <h3 id="anaphase-sub">Tahap Pemisahan</h3>
-                    <p id="anaphase-desc">Kromatid saudara terpisah dan ditarik oleh benang spindel menuju kutub sel yang berlawanan. Pada akhir anafase, kedua kutub sel memiliki set kromosom yang identik.</p>
-                    <div class="cell-division-animation anaphase-animation">
-                        <div class="nucleus"></div>
-                    </div>
+                <div id="scroll-container" class="blocktext">
+                    <h1 id="teks4" class="scale0 quicksand" style="font-size: 17px;font-weight:400"><b style="font-size:20px;font-weight:700">Yeaayy!! 🥳</b><br><br>Rai didiak sertifikadu ne,<br>lakon agora han karolu💐</h1>
+                    <h1 id="teksTambahan" class="hidden"><span id="teksLove">ledi imut</span></h1>
+                    <!-- Emoji Bisa Lebih dari 1 -->
+                    <script>const emojiAcak = ['💖', '❤️', '🧡', '💜', '🩵', '💚', '💙', '🤍', '💛', '🩷']</script>
+                    <script>const emojiAkhir = ['💐']</script>
                 </div>
             </div>
-            
-            <!-- Telofase -->
-            <div class="stage-card telophase">
-                <div class="card-header">
-                    <span class="phase-number">4</span>
-                    <span id="telophase-title">Telofase</span>
-                </div>
-                <div class="card-content">
-                    <div class="stage-icon">
-                        <i class="fas fa-divide"></i>
-                    </div>
-                    <h3 id="telophase-sub">Tahap Penyelesaian</h3>
-                    <p id="telophase-desc">Kromosom mencapai kutub masing-masing. Membran inti baru terbentuk di sekitar kromosom. Sitokinesis (pembelahan sitoplasma) terjadi, menghasilkan dua sel anak.</p>
-                    <div class="cell-division-animation telophase-animation">
-                        <div class="nucleus"></div>
-                        <div class="nucleus"></div>
-                    </div>
-                </div>
-            </div>
+
         </div>
-        
-        <footer>
-            <p id="footer-text">Dibikin oleh Genjiro untuk Ledi Imut - Tahun 2025</p>
-        </footer>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
     </div>
 
-    <script>
-        // Data teks dalam berbagai bahasa
-        const translations = {
-            id: {
-                title: "Pembelahan Sel (PMAT)",
-                introText: "Mitosis adalah proses pembelahan sel yang menghasilkan dua sel anak identik secara genetik. Proses ini terdiri dari empat tahap utama: Profase, Metafase, Anafase, dan Telofase (PMAT). Setiap tahap memiliki karakteristik khusus yang memastikan pembagian materi genetik yang akurat.",
-                prophaseTitle: "Profase",
-                prophaseSub: "Tahap Persiapan",
-                prophaseDesc: "Kromosom mulai memadat dan menjadi terlihat. Membran inti sel mulai menghilang. Sentriol bergerak menuju kutub yang berlawanan dan membentuk benang spindel.",
-                metaphaseTitle: "Metafase",
-                metaphaseSub: "Tahap Penyusunan",
-                metaphaseDesc: "Kromosom berjajar di bidang ekuator (tengah) sel. Setiap kromosom melekat pada benang spindel di bagian sentromernya. Susunan ini memastikan pembagian yang merata.",
-                anaphaseTitle: "Anafase",
-                anaphaseSub: "Tahap Pemisahan",
-                anaphaseDesc: "Kromatid saudara terpisah dan ditarik oleh benang spindel menuju kutub sel yang berlawanan. Pada akhir anafase, kedua kutub sel memiliki set kromosom yang identik.",
-                telophaseTitle: "Telofase",
-                telophaseSub: "Tahap Penyelesaian",
-                telophaseDesc: "Kromosom mencapai kutub masing-masing. Membran inti baru terbentuk di sekitar kromosom. Sitokinesis (pembelahan sitoplasma) terjadi, menghasilkan dua sel anak.",
-                footerText: "Dibikin oleh Genjiro untuk Ledi Imut - Tahun 2025"
-            },
-            en: {
-                title: "Cell Division (PMAT)",
-                introText: "Mitosis is the process of cell division that produces two genetically identical daughter cells. This process consists of four main stages: Prophase, Metaphase, Anaphase, and Telophase (PMAT). Each stage has specific characteristics that ensure accurate distribution of genetic material.",
-                prophaseTitle: "Prophase",
-                prophaseSub: "Preparation Stage",
-                prophaseDesc: "Chromosomes condense and become visible. The nuclear envelope breaks down. Centrioles move to opposite poles and form spindle fibers.",
-                metaphaseTitle: "Metaphase",
-                metaphaseSub: "Alignment Stage",
-                metaphaseDesc: "Chromosomes align at the equatorial plate (center) of the cell. Each chromosome attaches to spindle fibers at its centromere. This arrangement ensures equal division.",
-                anaphaseTitle: "Anaphase",
-                anaphaseSub: "Separation Stage",
-                anaphaseDesc: "Sister chromatids separate and are pulled by spindle fibers toward opposite poles of the cell. By the end of anaphase, each pole has an identical set of chromosomes.",
-                telophaseTitle: "Telophase",
-                telophaseSub: "Completion Stage",
-                telophaseDesc: "Chromosomes reach opposite poles. New nuclear envelopes form around the chromosomes. Cytokinesis (cytoplasm division) occurs, resulting in two daughter cells.",
-                footerText: "Created by Genjiro for Cute Ledi - Year 2025"
-            },
-            pt: {
-                title: "Divisão Celular (PMAT)",
-                introText: "A mitose é o processo de divisão celular que produz duas células-filhas geneticamente idênticas. Este processo consiste em quatro estágios principais: Prófase, Metáfase, Anáfase e Telófase (PMAT). Cada estágio tem características específicas que garantem a distribuição precisa do material genético.",
-                prophaseTitle: "Prófase",
-                prophaseSub: "Estágio de Preparação",
-                prophaseDesc: "Os cromossomos condensam e tornam-se visíveis. O envelope nuclear se desfaz. Os centríolos movem-se para polos opostos e formam fibras do fuso.",
-                metaphaseTitle: "Metáfase",
-                metaphaseSub: "Estágio de Alinhamento",
-                metaphaseDesc: "Os cromossomos alinham-se na placa equatorial (centro) da célula. Cada cromossomo liga-se às fibras do fuso pelo centrômero. Esse arranjo garante uma divisão igual.",
-                anaphaseTitle: "Anáfase",
-                anaphaseSub: "Estágio de Separação",
-                anaphaseDesc: "As cromátides-irmãs separam-se e são puxadas pelas fibras do fuso em direção a polos opostos da célula. Ao final da anáfase, cada polo tem um conjunto idêntico de cromossomos.",
-                telophaseTitle: "Telófase",
-                telophaseSub: "Estágio de Conclusão",
-                telophaseDesc: "Os cromossomos atingem os polos opostos. Novos envelopes nucleares formam-se ao redor dos cromossomos. Ocorre a citocinese (divisão do citoplasma), resultando em duas células-filhas.",
-                footerText: "Feito por Genjiro para Ledi Fofa - Ano 2025"
-            }
-        };
-
-        // Fungsi untuk mengganti bahasa
-        function changeLanguage(lang) {
-            // Update semua teks berdasarkan bahasa yang dipilih
-            document.getElementById('main-title').textContent = translations[lang].title;
-            document.getElementById('intro-text').textContent = translations[lang].introText;
-            document.getElementById('prophase-title').textContent = translations[lang].prophaseTitle;
-            document.getElementById('prophase-sub').textContent = translations[lang].prophaseSub;
-            document.getElementById('prophase-desc').textContent = translations[lang].prophaseDesc;
-            document.getElementById('metaphase-title').textContent = translations[lang].metaphaseTitle;
-            document.getElementById('metaphase-sub').textContent = translations[lang].metaphaseSub;
-            document.getElementById('metaphase-desc').textContent = translations[lang].metaphaseDesc;
-            document.getElementById('anaphase-title').textContent = translations[lang].anaphaseTitle;
-            document.getElementById('anaphase-sub').textContent = translations[lang].anaphaseSub;
-            document.getElementById('anaphase-desc').textContent = translations[lang].anaphaseDesc;
-            document.getElementById('telophase-title').textContent = translations[lang].telophaseTitle;
-            document.getElementById('telophase-sub').textContent = translations[lang].telophaseSub;
-            document.getElementById('telophase-desc').textContent = translations[lang].telophaseDesc;
-            document.getElementById('footer-text').textContent = translations[lang].footerText;
-            
-            // Update status aktif tombol bahasa
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.remove('active');
-                if (btn.dataset.lang === lang) {
-                    btn.classList.add('active');
-                }
-            });
-        }
-
-        // Event listener untuk tombol bahasa
-        document.querySelectorAll('.lang-btn').forEach(button => {
-            button.addEventListener('click', () => {
-                const lang = button.dataset.lang;
-                changeLanguage(lang);
-            });
-        });
-
-        // Inisialisasi dengan bahasa Indonesia
-        changeLanguage('id');
-    </script>
+	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> 	 
+	<script src="https://htmlku.com/hanyabuatmu/script.js"></script>
 </body>
 </html>

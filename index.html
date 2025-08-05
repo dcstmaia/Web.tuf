@@ -15,7 +15,7 @@
 </head>
 <body>
   <audio src="https://feeldreams.github.io/audio/foreveryoung.mp3" id="linkmp3" class="hidden"></audio>
-	<div class="overlay">
+  <div class="overlay">
     <div class="loading-message">Ledi cute!<br>wait yaa..</div>
      <div id="loveIn" class="blocklove">
         <a href="#" target="_blank" class="lovein"></a>
@@ -49,22 +49,23 @@
 
             <div class="swiper-slide">
                 <div id="stiker3" class="scale0 sertifikat">
-				    <img src="https://htmlku.com/hanyabuatmu/sertifikat.png" alt="Sertifikat">
-				    
-				    <div id="teks3" class="scale0 text-overlay">
-					    <div class="real">Rill, <span style="color:red">no fake</span></div>
-				        <h1 class="main-title">🌟 CERTIFICATE 🌟</h1>
-				        <div class="sub-title">You’ve got this quiet way of making
+          <!-- Ganti gambar sertifikat ke versi tanpa logo -->
+          <img src="https://i.imgur.com/B7o4Raz.jpeg" alt="Sertifikat">
+          
+          <div id="teks3" class="scale0 text-overlay">
+            <div class="real">Rill, <span style="color:red">no fake</span></div>
+            <h1 class="main-title">🌟 CERTIFICATE 🌟</h1>
+            <div class="sub-title">You’ve got this quiet way of making
 things feel more comfortable,
 even when nothing big is happening.
-</div>
-				        <div class="content">Give to</div>
-				        <h1 style="font-size:25px;margin:5px;text-decoration: underline;text-decoration-color:pink">YOU</h1>
-				        <div class="content">I don’t always say it,
+            </div>
+            <div class="content">Give to</div>
+            <h1 style="font-size:25px;margin:5px;text-decoration: underline;text-decoration-color:pink">YOU</h1>
+            <div class="content">I don’t always say it,
 but your presence makes things better.
 Keep going<br>you’re doing great..</div>
-				    </div>
-				</div>
+          </div>
+        </div>
             </div>
             
             <div class="swiper-slide">
@@ -88,7 +89,36 @@ Keep going<br>you’re doing great..</div>
         <div class="swiper-pagination"></div>
     </div>
 
-	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> 	 
-	<script src="https://htmlku.com/hanyabuatmu/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>   
+  <script src="https://htmlku.com/hanyabuatmu/script.js"></script>
+
+  <!-- Efek Lady Emote 1%–10% -->
+  <h1 id="teksLanjutan" class="hidden" style="text-align:center;">Naik ke 1000% 🚀</h1>
+
+  <script>
+    const peluang = Math.random();
+    const emojiAcak = ['💖', '❤️', '🧡', '💜', '🩵', '💚', '💙', '🤍', '💛', '🩷'];
+
+    if (peluang >= 0.01 && peluang <= 0.10) {
+      const teksLove = document.getElementById("teksLove");
+      let emojiTeks = "";
+
+      for (let i = 0; i < 5; i++) {
+        emojiTeks += emojiAcak[Math.floor(Math.random() * emojiAcak.length)];
+      }
+
+      teksLove.innerText = "Lady Emote " + emojiTeks;
+
+      document.getElementById("teksTambahan").classList.remove("hidden");
+      document.getElementById("teksLanjutan").classList.remove("hidden");
+    }
+  </script>
+
+  <style>
+    .hidden {
+      display: none;
+    }
+  </style>
+
 </body>
 </html>
